@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Admin part !{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('admin') }}
+        {% endblock %}
+    </head>
+    
+    <body>        
+            <header>
+                {% block header %}
+                    {% block nav %}
+                        <nav class="navbar navbar-expand-md fixed-top">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarText">
+                                <ul class="navbar-nav ml-auto order-1 order-md-2 ">
+                                    <li class="nav-item current active"><a class="nav-link" href="#home">Accueil</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#about">Technologies</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#resume">Projets</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#work">Contact</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="./file/CV.pdf" target="_blank">CV</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    {% endblock %}
+                {% endblock %}
+            </header>
+        {% block body %} {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('admin') }}
+        {% endblock %}
+    </body>
+</html>

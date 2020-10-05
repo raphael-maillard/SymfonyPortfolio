@@ -1,18 +1,8 @@
 /* mobileFirst */
 body {
-    color: black;
+    background-color: grey;
 }
 
-.header-1 {
-    background: #161415 url(../img/background/sunsetResizeMobile.png) no-repeat top center;
-    height: 100vh;
-    background-size: cover;
-    font-family: "Myriad pro Semibold";
-}
-
-.vertical {
-    margin-top: 40%;
-}
 
 a {
     color : #343a40;

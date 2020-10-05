@@ -6,7 +6,7 @@
  */
 
 // any CSS you import will output into a single css file (app.css in this case)
-import './styles/app.css';
+import './styles/admin.css';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -16,9 +16,6 @@ import $ from 'jquery';
 import './navbar';
 import './fontawesome';
 
-// import 'bootstrap.min.js';
-// import 'jquery-3.5.1.slim.min.js';
-// import 'popper.js';
 
 console.log('Hello Webpack Encore! Edit me in assets/app.js');
 
