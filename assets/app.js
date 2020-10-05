@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import $ from 'jquery';
 
 import './navbar';
-import './fontawesome'
+import './fontawesome';
 
 // import 'bootstrap.min.js';
 // import 'jquery-3.5.1.slim.min.js';
