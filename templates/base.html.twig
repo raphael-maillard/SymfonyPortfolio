@@ -45,8 +45,29 @@
         {% block body %}
 
             <section>
-                <!-- Technologies utlisées > affichage avec bootstrap sur fenetre  
-                
+                <!-- Technologies utlisées > affichage avec bootstrap sur fenetre <?php 
+                    $tab = [
+                        ["lang" => "php", "cat" => "back"],
+                        ["lang" => "html", "cat" => "front"],
+                        ["lang" => "css", "cat" => "front"]
+                    ];
+
+                    $cat = "";
+
+                    foreach($line as $tab)
+                    {
+                        if($cat != $line['cat'])
+                        {
+                            $cat = $line['cat'];
+                            echo "<p>".$cat."</p>";
+                        }
+                        
+                        echo $line["lang"];
+                        // photo
+                        // desc
+                        
+                    }
+                    ?> 
                 Part Front-end / Back-End / Tools / OS  -->
 
                 <div class="container-fluid pt-4 justify-content-between ">
@@ -412,26 +433,4 @@
 </html>
 
 
-<?php 
-$tab = [
-    ["lang" => "php", "cat" => "back"],
-    ["lang" => "html", "cat" => "front"],
-    ["lang" => "css", "cat" => "front"]
-];
-
-$cat = "";
-
-foreach($line as $tab)
-{
-    if($cat != $line['cat'])
-    {
-        $cat = $line['cat'];
-        echo "<p>".$cat."</p>";
-    }
-    
-    echo $line["lang"];
-    // photo
-    // desc
-    
-}
-?>
+{#  #}
