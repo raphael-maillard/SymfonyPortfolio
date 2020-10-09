@@ -4,7 +4,7 @@ body {
 }
 
 .header-1 {
-    background: #161415 url(../img/background/sunsetResizeMobile.png) no-repeat top center;
+    /* background: #161415 url(../img/background/sunsetResizeMobile.png) no-repeat top center; */
     height: 100vh;
     background-size: cover;
     font-family: "Myriad pro Semibold";
@@ -93,6 +93,6 @@ form {
 @media screen and (min-width: 1280px) 
 {
     header {
-        background: #161415 url(../img/background/sunset.png) no-repeat top center;
+        /* background: #161415 url(../img/background/sunset.png) no-repeat top center; */
     }
 }
