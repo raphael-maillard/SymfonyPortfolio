@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\TechnologiesRepository;
+use App\Repository\TechnologieRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=TechnologiesRepository::class)
+ * @ORM\Entity(repositoryClass=TechnologieRepository::class)
  */
-class Technologies
+class Technologie
 {
     /**
      * @ORM\Id
@@ -23,20 +23,15 @@ class Technologies
     private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $resume;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $logo;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=Categories::class, inversedBy="id_technologie")
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="technologie")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $id_category;
+    private $category;
 
     public function getId(): ?int
     {
@@ -60,33 +55,21 @@ class Technologies
         return $this->resume;
     }
 
-    public function setResume(string $resume): self
+    public function setResume(?string $resume): self
     {
         $this->resume = $resume;
 
         return $this;
     }
 
-    public function getLogo(): ?string
+    public function getCategory(): ?Category
     {
-        return $this->logo;
+        return $this->category;
     }
 
-    public function setLogo(?string $logo): self
+    public function setCategory(?Category $category): self
     {
-        $this->logo = $logo;
-
-        return $this;
-    }
-
-    public function getIdCategory(): ?Categories
-    {
-        return $this->id_category;
-    }
-
-    public function setIdCategory(?Categories $id_category): self
-    {
-        $this->id_category = $id_category;
+        $this->category = $category;
 
         return $this;
     }
