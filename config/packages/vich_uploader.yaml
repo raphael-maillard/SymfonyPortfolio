@@ -2,6 +2,10 @@ vich_uploader:
     db_driver: orm
 
     mappings:
-        categories:
-            uri_prefix: /images/categories
-            upload_destination: '%kernel.project_dir%/public/images/categories'
+        category:
+            # Ici on reprend l'attribut définit dans le fichier services.yaml
+            uri_prefix: '%app.path.category%'
+            # Ici le namer évite que l'on ai 2 fichiers avec le même nom.
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            # Ici on précise où on veut que l'image doit être stocké
+            upload_destination: '%kernel.project_dir%/public/images/category'
