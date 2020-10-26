@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=CategoryRepository::class)
+ *  * @Vich\Uploadable
  */
 class Category
 {
@@ -25,7 +27,9 @@ class Category
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @Vich\UploadableField(mapping="category", fileNameProperty="imageName")
+     * 
+     * @var File|null
      */
     private $imageFile;
 
@@ -54,6 +58,21 @@ class Category
         $this->technologie = new ArrayCollection();
     }
 
+     /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) 
+        {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,16 +90,9 @@ class Category
         return $this;
     }
 
-    public function getImageFile(): ?string
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
-    }
-
-    public function setImageFile(?string $imageFile): self
-    {
-        $this->imageFile = $imageFile;
-
-        return $this;
     }
 
     public function getImageName(): ?string
