@@ -4,11 +4,7 @@ body {
 }
 
 .header-1 {
-<<<<<<< HEAD
     background: #161415 url(../img/background/sunsetResizeMobile.png) no-repeat fixed;
-=======
-    /* background: #161415 url(../img/background/sunsetResizeMobile.png) no-repeat top center; */
->>>>>>> 19d9cb6f9ec63e82b69784251f90b2c2816201c6
     height: 100vh;
     background-size: cover;
     font-family: "Myriad pro Semibold";
