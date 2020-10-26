@@ -13,7 +13,7 @@
             <header class="header-1">
                 {% block header %}
                     {% block nav %}
-                        <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+                        <nav class="navbar navbar-expand-md navbar-light fixed-top">
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
                             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -29,7 +29,7 @@
                             </div>
                         </nav>
                     {% endblock %}
-                    {% block jumbotron %}
+                    {# {% block jumbotron %}
                         <div class="container">
                             <div class="row justify-content-center">
                                 <div class="col-8 col-lg-12 vertical">
@@ -39,14 +39,35 @@
                                 </div>
                             </div>
                         </div>
-                    {% endblock %}
+                    {% endblock %} #}
                 {% endblock %}
             </header>
         {% block body %}
 
             <section>
-                <!-- Technologies utlisées > affichage avec bootstrap sur fenetre  
-                
+                <!-- Technologies utlisées > affichage avec bootstrap sur fenetre <?php 
+                    $tab = [
+                        ["lang" => "php", "cat" => "back"],
+                        ["lang" => "html", "cat" => "front"],
+                        ["lang" => "css", "cat" => "front"]
+                    ];
+
+                    $cat = "";
+
+                    foreach($line as $tab)
+                    {
+                        if($cat != $line['cat'])
+                        {
+                            $cat = $line['cat'];
+                            echo "<p>".$cat."</p>";
+                        }
+                        
+                        echo $line["lang"];
+                        // photo
+                        // desc
+                        
+                    }
+                    ?> 
                 Part Front-end / Back-End / Tools / OS  -->
 
                 <div class="container-fluid pt-4 justify-content-between ">
@@ -410,3 +431,6 @@
         {% endblock %}
     </body>
 </html>
+
+
+{#  #}
