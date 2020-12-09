@@ -28,6 +28,12 @@ class TechnologieFixtures extends Fixture
             "resume" => "Le Html est un langage de balisage conçu pour représenter les pages web. C’est
                         un langage permettant d’écrire de l’hypertexte."
         ],
+        [
+            "category_id" => $category[0],
+            "name" => "CSS",
+            "resume" =>"Le CSS est un langage
+                                        informatique utilisé sur l'internet pour mettre en forme les  zfichiers HTML ou XML."
+        ],
 
 
         [

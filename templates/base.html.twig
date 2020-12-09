@@ -70,8 +70,61 @@
                     ?> 
                 Part Front-end / Back-End / Tools / OS  -->
 
+                {# {% for techno in Technologies %}
+
+                    <h1>{{techno.name}}</h1>
+                    <h1>{{techno.resume}}</h1>
+                {% endfor %} #}
+                {{ dump(Technologies)}}
+
+                {% set loop = ""%}
+                {% set numberCat = 0 %}
+                {% set cat = ""%}
+
                 <div class="container-fluid pt-4 justify-content-between ">
+                {% for techno in Technologies %}
+                    
+
+                    {% if numberCat == 4 %}                    
                     <div class="row text-center align-items-center justify-content-around">
+                    {% endif %}
+                        
+                            
+                            
+                            
+                            {% if cat != techno.category.id %}
+                                {% set numberCat = +1 %}
+                                {% set cat = techno.category.id %}
+                                    <div class="col-12 col-md-4 pt-4 ">
+                                        <img src="{{ asset('build/images/') }}{{techno.category.imageName}}" alt="{{ techno.category.imageName }}" width="50px" height="50px">
+                                        <div class="row justify-content-around">
+                                            <div class="row col-12 col-md-4 ">
+                                                <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                                    data-trigger="focus" title={{techno.name}} data-placement="left"
+                                                    data-content="{{techno.resume}}">{{techno.name}}
+                                                </button>
+                                    
+                            {% else %}
+                                                {% set numberCat = +1 %}
+                                                <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                                        data-trigger="focus" title={{techno.name}} data-placement="left"
+                                                        data-content= "{{techno.resume}}">{{techno.name}}
+                                                </button>
+                                            </div>
+                                        </div>
+                    {% if cat == techno.category.id %} 
+                    </div>
+                    {% set numberCat = 0%}
+                    {% endif %}
+                            
+                                    
+
+                            {% endif %}
+
+                        </div>
+                    </div>
+                {% endfor %}
+                    {# <div class="row text-center align-items-center justify-content-around">
                         <div class="col-12 col-md-4 pt-4 ">
                             <img src="{{asset('build/images/monitor.svg')}}" alt="logo monitor" width="50px" height="50px">
 
@@ -85,7 +138,7 @@
 
                                     <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
                                         data-trigger="focus" title="CSS" data-placement="left" data-content="Le CSS est un langage
-                                        informatique utilisé sur l'internet pour mettre en forme les fichiers HTML ou XML.">CSS
+                                        informatique utilisé sur l'internet pour mettre en forme les  zfichiers HTML ou XML.">CSS
                                         </button>
                                 </div>
                                         
@@ -264,7 +317,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </div>
+                        </div> #}
                     </div> 
                     <div class="row text-center align-items-center justify-content-between">
                         <div class="col-12">

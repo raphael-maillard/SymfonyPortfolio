@@ -47,4 +47,9 @@ class TechnologieRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAllASC()
+    {
+        return $this->findBy([], array('category' => 'ASC'));
+    }
 }

@@ -11,10 +11,22 @@ class CategoryFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         $categories = [
-            ["Name" => "Front-End"],
-            ["Name" => "Back-End"],
-            ["Name" => "Tools"],
-            ["Name" => "OS"],
+            [
+                "Name" => "Front-End",
+                "image" => "monitor.svg"
+            ],
+            [
+                "Name" => "Back-End",
+                "image" => "server.svg"
+            ],
+            [
+                "Name" => "Tools",
+                "image" => "software.svg"
+            ],
+            [
+                "Name" => "OS",
+                "image" => "os.svg"
+            ],
     
         ];
 
@@ -22,6 +34,7 @@ class CategoryFixtures extends Fixture
             $categorie = new Category();
 
             $categorie->setName($categories[$i]['Name']);
+            $categorie->setImageName($categories[$i]['image']);
             $categorie->setCreatedAt(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
 
 
