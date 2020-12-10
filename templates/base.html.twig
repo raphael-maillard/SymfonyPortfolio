@@ -75,260 +75,94 @@
                     <h1>{{techno.name}}</h1>
                     <h1>{{techno.resume}}</h1>
                 {% endfor %} #}
-                {{ dump(Technologies)}}
 
-                {% set loop = ""%}
                 {% set numberCat = 0 %}
-                {% set cat = ""%}
+                {% set button = 0 %}
+                {% set cat = "" %}
 
                 <div class="container-fluid pt-4 justify-content-between ">
-                {% for techno in Technologies %}
-                    
+                    {% for techno in Technologies %}  
 
-                    {% if numberCat == 4 %}                    
-                    <div class="row text-center align-items-center justify-content-around">
-                    {% endif %}
-                        
-                            
-                            
-                            
-                            {% if cat != techno.category.id %}
-                                {% set numberCat = +1 %}
-                                {% set cat = techno.category.id %}
-                                    <div class="col-12 col-md-4 pt-4 ">
-                                        <img src="{{ asset('build/images/' ~ techno.category.imageName) }}" alt="{{ techno.category.imageName }}" width="50px" height="50px">
-                                        
-                                        <div class="row justify-content-around">
-                                            <div class="row col-12 col-md-4 ">
-                                                <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
-                                                    data-trigger="focus" title={{techno.name}} data-placement="left"
-                                                    data-content="{{techno.resume}}">{{techno.name}}
-                                                </button>
-                                    
-                            {% else %}
-                                                {% set numberCat = +1 %}
-                                                <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
-                                                        data-trigger="focus" title={{techno.name}} data-placement="left"
-                                                        data-content= "{{techno.resume}}">{{techno.name}}
-                                                </button>
-                                            </div>
-                                        </div>
-                    {% if cat == techno.category.id %} 
-                    </div>
-                    {% set numberCat = 0%}
-                    {% endif %}
-                            
-                                    
-
-                            {% endif %}
-
-                        </div>
-                    </div>
-                {% endfor %}
-                    {# <div class="row text-center align-items-center justify-content-around">
-                        <div class="col-12 col-md-4 pt-4 ">
-                            <img src="{{asset('build/images/monitor.svg')}}" alt="logo monitor" width="50px" height="50px">
-
-                            <div class="row justify-content-around">
-                                <div class="row col-12 col-md-4 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
-                                        data-trigger="focus" title="Html" data-placement="left"
-                                        data-content="Le Html est un langage de balisage conçu pour représenter les pages web. C’est
-                                        un langage permettant d’écrire de l’hypertexte.">Html
-                                    </button>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
-                                        data-trigger="focus" title="CSS" data-placement="left" data-content="Le CSS est un langage
-                                        informatique utilisé sur l'internet pour mettre en forme les  zfichiers HTML ou XML.">CSS
-                                        </button>
-                                </div>
-                                        
-                                <div class="row col-12 col-md-4 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
-                                        data-trigger="focus" title="Javascript" data-placement="right"
-                                        data-content="Le Javascript est un langage de programmation de scripts principalement employé dans les pages web
-                                        interactives mais aussi pour les serveurs avec l'utilisation (par exemple) de Node.js">Javascript
-                                    </button>
-                                    
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover"
-                                        data-trigger="focus" title="Bootstrap" data-placement="right"
-                                        data-content="Bootstrap est une bibliothéque utiles à la création du design (graphisme,
-                                        animation et interactions avec la page dans le navigateur, etc.) de sites et
-                                        d'applications web.">Bootstrap
-                                    </button>
-                                </div>
+                        {% if (cat != techno.category.id) and ( numberCat > 0) %} 
                             </div>
-                        </div>
-                        <div class="col-12 col-md-4 pt-4 ">
-                            <img src="{{asset('build/images/server.svg')}}" alt="Logo server" width="50px" height="50px">
+                        {% endif %} 
 
-                            <div class="row justify-content-around">
-                                <div class="row col-12 col-md-4 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Php"
-                                        data-placement="left" data-content="Le PHP est un langage de
-                                        programmation libre, principalement utilisé pour produire des pages
-                                        Web dynamiques via un serveur HTTP, mais pouvant également
-                                        fonctionner comme n'importe quel langage interprété de façon locale.
-                                        PHP est un langage impératif orienté objet.">Php
-                                    </button>
+                        {% if ((numberCat % 2) == 0) %}
 
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="SQL"
-                                        data-placement="left"
-                                        data-content="Le SQL est un langage informatique normalisé servant à
-                                        exploiter des bases de données relationnelles.">SQL
-                                    </button>
-                                </div>
+                            {% if ( numberCat > 0) %}</div> {% endif %}
 
+                            <div class="row text-center align-items-center justify-content-around">
+
+                        {% endif %}
+
+
+                        {% if cat != techno.category.id %}
+
+                            {% set numberCat = numberCat + 1 %}
+                            <div class="col-12 col-md-4 pt-4 ">
+                                <img src="{{ asset('build/images/' ~ techno.category.imageName) }}" alt="{{ techno.category.imageName }}" width="50px" height="50px">   
                                 <div class="row justify-content-around">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Java"
-                                        data-placement="right"
-                                        data-content="Java est un langage de programmation orienté objet Une
-                                        particularité de Java est que les logiciels écrits dans ce langage
-                                        sont compilés vers une représentation binaire intermédiaire qui peut
-                                        être exécutée dans une machine virtuelle Java (JVM) en faisant
-                                        abstraction du système d'exploitation.">Java
+
+                                {% set button = button + 1 %}
+                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                        data-trigger="focus" title={{techno.name}} data-placement="left"
+                                        data-content="{{techno.resume}}">{{techno.name}}
                                     </button>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Kotlin"
-                                        data-placement="right" data-content="Kotlin est un langage de
-                                        programmation orienté objet et fonctionnel, avec un typage statique
-                                        qui permet de compiler pour la machine virtuelle Java, JavaScript,
-                                        et vers plusieurs plateformes en natif (grâce à LLVM).">Kotlin
-                                    </button> 
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row text-center align-items-center justify-content-around mt-5">
-                        <div class="col-12 col-md-4 pt-4 ">
-                            <img src="{{ asset('build/images/os.svg') }}" alt="Logo OS" width="50px" height="50px">
-
-                            <div class="row justify-content-around">
-                                <div class="row col-12 col-md-4 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Windows"
-                                        data-placement="left" data-content="Un système d'exploitation tel
-                                        que ceux de la série Windows est un ensemble de programmes qui
-                                        manipule les moyens matériels de l'ordinateur et offre aux logiciels
-                                        applicatifs des services en rapport avec leur utilisation">Windows
-                                    </button><br>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Debian "
-                                        data-placement="left"
-                                        data-content="Debian est une distribution GNU/Linux non commerciale,
-                                        elle a pour principal but de fournir un système d'exploitation
-                                        composé uniquement de logiciels libres.">Debian
-                                    </button><br>
-                                </div>
-                                <div class="row col-12 col-md-6 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Ubuntu"
-                                        data-placement="right"
-                                        data-content="Ubuntu est un système d’exploitation GNU/Linux basé
-                                        sur la distribution Linux Debian.">Ubuntu
-                                    </button><br>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="VMware ESXi"
-                                        data-placement="right" data-content="Ce produit s'installe sur la
-                                        couche matérielle (on parle d'hyperviseur de type 1), et non sur un
-                                        système d'exploitation « hôte ». VMware ESX permet une gestion plus
-                                        précise des ressources de chaque machine virtuelle et de meilleures
-                                        performances.">VMware ESXi
-                                    </button><br>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4 pt-4 ">
-                            <img src="{{asset('build/images/software.svg')}}" alt="Logo OS" width="50px" height="50px">
                             
-                            <div class="row justify-content-around">
-                                <div class="row col-12 col-md-4 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Symfony"
-                                        data-placement="left" data-content="Symfony est un ensemble de composants PHP ainsi
-                                        qu'un framework MVC libre écrit en PHP. Il fournit des fonctionnalités modulables et
-                                        adaptables qui permettent de faciliter et d’accélérer le développement d'un site web.">Symfony
-                                    </button>
 
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Git / GitHub"
-                                        data-placement="left"
-                                        data-content="Github est un service web d'hébergement et de gestion de développement de
-                                        logiciels, utilisant le logiciel de gestion de versions Git.">Git / GitHub
-                                    </button>
+                            {% set cat = techno.category.id %}
 
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Visual Studio Code"
-                                        data-placement="left"
-                                        data-content="Visual Studio Code est un éditeur de code extensible développé par
-                                        Microsoft.">Visual Studio Code
-                                    </button>
+                        {% elseif cat == techno.category.id %}
+                                    {# {% set button = button + 1 %}
+                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                        data-trigger="focus" title={{techno.name}} data-placement="left"
+                                        data-content="{{techno.resume}}">{{techno.name}}
+                                    </button> #}
 
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
-                                        data-toggle="popover" data-trigger="focus" title="Sublime Text 3"
-                                        data-placement="left" data-content="Sublime Text est un éditeur de texte générique
-                                        codé
-                                        en C++ et Python.">Sublime Text 3
-                                    </button>
+                        {% endif %}
 
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button" data-toggle="popover" data-trigger="focus"
-                                        title="Android Studio" data-placement="left" data-content="Android Studio est un
-                                        environnement de développement pour développer des applications mobiles
-                                        Android.">Android Studio
-                                    </button>
-                                </div>
-
-                                <div class="row col-12 col-md-6 ">
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button" data-toggle="popover" data-trigger="focus"
-                                        title="CSS" data-placement="right" data-content="Le CSS est un langage
-                                        informatique utilisé sur l'internet pour mettre en forme les fichiers HTML ou XML.">CSS
-                                    </button>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button" data-toggle="popover" data-trigger="focus"
-                                        title="LAMP / WAMP" data-placement="right"
-                                        data-content="LAMP/ WAMP est un acronyme désignant un ensemble de logiciels libres
-                                        permettant de construire des serveurs de sites web. ">LAMP / WAMP
-                                    </button>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button" data-toggle="popover" data-trigger="focus"
-                                        title="MySQL / MariaDB" data-placement="right"
-                                        data-content="MySQL/MariaDB sont des systèmes de gestions de bases de données
-                                        relationnelles.">MySQL / MariaDB
-                                    </button>
-
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block"
-                                        role="button" data-toggle="popover" data-trigger="focus"
-                                        title="PhpMyAdmin " data-placement="right"
-                                        data-content="phpMyAdmin est une application Web de gestion pour les systèmes de
-                                        gestion de base de données MySQL réalisée principalement en PHP et distribuée sous
-                                        licence GNU GPL.">PhpMyAdmin
-                                    </button>
-                                </div>
+                        {% if ((button % 2) == 0 ) and (button != 0)%}
                             </div>
-                        </div> #}
-                    </div> 
-                    <div class="row text-center align-items-center justify-content-between">
-                        <div class="col-12">
-                            <i class="far fa-eye" style="font-size: 50px;"></i>
-                            <button tabindex="0" class="btn btn-light btn-block" role="button" data-toggle="popover"
-                                data-trigger="focus" title="Veille Technologique " data-placement="top" data-content="Je suis toujours à l'affût de nouvelle technologies, j'aime me renseigner sur divers sujets
-                                ">Veille Technologique
-                            </button>
-                        </div>
-                    </div>
+                        {% endif %}
+
+                        {% if (cat != techno.category.id) and ((numberCat % 2) == 0) %}
+                                </div>
+                        {% endif %}
+
+
+                    {% endfor %}
+
+                    {# Tableau test #}
+                    {# {% for techno in Technologies %}
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>techno.category.imageName</td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>{{techno.name}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        
+                        </tbody>
+
+                    </table>
+
+                {% endfor %} #}
+
+                
+
                 </div>
             </section>
 
