@@ -27,6 +27,12 @@ class CategoryFixtures extends Fixture
                 "Name" => "OS",
                 "image" => "os.svg"
             ],
+            
+            [
+                "Name" => "Veille technologique",
+                "image" => "os.svg"
+            ],
+
     
         ];
 

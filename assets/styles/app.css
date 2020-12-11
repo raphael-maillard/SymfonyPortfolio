@@ -67,10 +67,10 @@ form {
 
 @media screen and (min-width: 768px) 
 {
-    /* header {
+    header {
         background: #161415 url(../img/background/sunset.png) no-repeat top center;
         font-size: 1, 8rem;
-    } */
+    }
 
     header h1 {
         font-size: 3rem;
@@ -93,6 +93,6 @@ form {
 @media screen and (min-width: 1280px) 
 {
     header {
-        /* background: #161415 url(../img/background/sunset.png) no-repeat top center; */
+        background: #161415 url(../img/background/sunset.png) no-repeat top center;
     }
 }
