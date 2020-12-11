@@ -34,8 +34,19 @@ class TechnologieFixtures extends Fixture
             "resume" =>"Le CSS est un langage
                                         informatique utilisé sur l'internet pour mettre en forme les  zfichiers HTML ou XML."
         ],
-
-
+        [
+            "category_id" => $category[0],
+            "name" => "Javascript",
+            "resume" =>"Le Javascript est un langage de programmation de scripts principalement employé dans les pages web
+                                    interactives mais aussi pour les serveurs avec l'utilisation (par exemple) de Node.js"
+        ],
+        [
+            "category_id" => $category[0],
+            "name" => "Bootstrap",
+            "resume" =>"Bootstrap est une bibliothéque utiles à la création du design (graphisme,
+                                    animation et interactions avec la page dans le navigateur, etc.) de sites et
+                                    d'applications web."
+        ],
         [
             "category_id" => $category[1],
             "name" => "Php",

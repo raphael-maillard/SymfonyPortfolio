@@ -76,16 +76,16 @@
                     <h1>{{techno.resume}}</h1>
                 {% endfor %} #}
 
-                {% set numberCat = 0 %}
+                {# {% set numberCat = 0 %}
                 {% set button = 0 %}
                 {% set cat = "" %}
 
-                <div class="container-fluid pt-4 justify-content-between ">
+                
                     {% for techno in Technologies %}  
 
-                        {% if (cat != techno.category.id) and ( numberCat > 0) %} 
-                            </div>
-                        {% endif %} 
+                    {% if loop.first %} <div class="container-fluid pt-4 justify-content-between "> {% endif %}
+
+                        {% if (cat != techno.category.id) and ( numberCat > 0) %} </div> {% endif %} 
 
                         {% if ((numberCat % 2) == 0) %}
 
@@ -95,43 +95,49 @@
 
                         {% endif %}
 
-
                         {% if cat != techno.category.id %}
+                            {% if ( numberCat > 0) and ((numberCat % 2) != 0)  %}</div> {% endif %}
 
                             {% set numberCat = numberCat + 1 %}
                             <div class="col-12 col-md-4 pt-4 ">
                                 <img src="{{ asset('build/images/' ~ techno.category.imageName) }}" alt="{{ techno.category.imageName }}" width="50px" height="50px">   
                                 <div class="row justify-content-around">
 
-                                {% set button = button + 1 %}
+                            {% set button = button + 1 %}
+                                <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                    data-trigger="focus" title={{techno.name}} data-placement="left"
+                                    data-content="{{techno.resume}}">{{techno.name}}
+                                </button>                      
+
+                            {% set cat = techno.category.id %}
+
+                        {% elseif (cat == techno.category.id) and ((button % 2) != 0) %}
+                                    {% set button = button + 1 %}
                                     <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
                                         data-trigger="focus" title={{techno.name}} data-placement="left"
                                         data-content="{{techno.resume}}">{{techno.name}}
                                     </button>
-                                </div>
-                            
+                                    </div>
+                                    <div class="row justify-content-around">
 
-                            {% set cat = techno.category.id %}
+                        {% else %}
+                            {% set button = button + 1 %}
+                            <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                data-trigger="focus" title={{techno.name}} data-placement="left"
+                                data-content="{{techno.resume}}">{{techno.name}}
+                            </button>                                                   
 
-                        {% elseif cat == techno.category.id %}
-                                    {# {% set button = button + 1 %}
-                                    <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
-                                        data-trigger="focus" title={{techno.name}} data-placement="left"
-                                        data-content="{{techno.resume}}">{{techno.name}}
-                                    </button> #}
+                        {% endif %} #}
 
-                        {% endif %}
+                        {# {% if ((button % 2) == 0 ) and (button != 0)%} </div> {% endif %} #}
 
-                        {% if ((button % 2) == 0 ) and (button != 0)%}
-                            </div>
-                        {% endif %}
+                        {# {% if (cat != techno.category.id) and ((numberCat % 2) == 0) %} </div> {% endif %}
+                    
+                        {% if loop.last %} </div> </div> </div> </div> {% endif %}
 
-                        {% if (cat != techno.category.id) and ((numberCat % 2) == 0) %}
-                                </div>
-                        {% endif %}
+                    {% endfor %} #}
 
-
-                    {% endfor %}
+                    {# </div> #}
 
                     {# Tableau test #}
                     {# {% for techno in Technologies %}
@@ -159,11 +165,11 @@
 
                     </table>
 
-                {% endfor %} #}
+                    {% endfor %} #}
 
                 
 
-                </div>
+
             </section>
 
             <section class="project">

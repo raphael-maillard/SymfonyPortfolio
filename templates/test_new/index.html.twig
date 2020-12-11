@@ -1,20 +1,124 @@
 {% extends 'base.html.twig' %}
-{# 
+
 {% block title %}Hello TestNewController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+<section>
+{% set numberCat = 0 %}
+{% set button = 0 %}
+{% set cat = "" %}
+{% set newCat = false %}
+{% set newButton = false %}
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/SymfonyPortfolio/src/Controller/TestNewController.php'|file_link(0) }}">src/Controller/TestNewController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/SymfonyPortfolio/templates/test_new/index.html.twig'|file_link(0) }}">templates/test_new/index.html.twig</a></code></li>
-    </ul>
-</div>
-{% endblock %} #}
+{% for techno in Technologies %}
+
+    {% if loop.first %} <div class="container-fluid pt-4 justify-content-between "> {% endif %}
+
+    {# {% if (cat != techno.category.id ) and ((button % 2) != 0) and (button != 0 )%} </div> <!-- nouvelle cat 1 bouton --> {% endif %}
+
+    {% if (cat != techno.category.id) and ((numberCat % 2) != 0) and (numberCat != 0) %}
+        </div> </div>  <!-- --> <!-- New Cat / Cat-> Impair / -->
+    {% endif %}
+
+    {% if (cat != techno.category.id) and ((numberCat % 2) == 0) and (numberCat != 0) %}
+        </div> </div> </div> <!--Nouvel Catégorie Cat Pair -->
+    {% endif %} #}
+
+    {% if (cat != techno.category.id ) and ((button % 2) != 0) and (button != 0 )%} </div> <!-- Si l'ancienne CAT avait nb button impair ferme div --> {% endif %}
+
+    {% if (cat != techno.category.id) and ((numberCat % 2) != 0) and (numberCat != 0) %}</div> </div> <!-- Si new CAT Nb CAT impair -> Ferme col-12 et row justify -->  {% endif %}
+
+    {% if (cat != techno.category.id) and ((numberCat % 2) == 0) and (numberCat != 0) %}</div> </div> </div>  {% endif %}
+
+    {% if cat != techno.category.id %}
+
+        {% if ((numberCat % 2) == 0) %}
+        
+            <div class="row text-center align-items-center justify-content-around">
+        
+        {% endif %}
+
+
+        {% set button = 0 %}
+            <div class="col-12 col-md-4 pt-4">
+                <img src="{{ asset('build/images/' ~ techno.category.imageName) }}" alt="{{ techno.category.imageName }}" width="50px" height="50px">
+                    <div class="row justify-content-around">
+                        <div class="row col-12 col-md-4 ">
+                            <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                data-trigger="focus" title={{techno.name}} data-placement="left"
+                                data-content="{{techno.resume}}">{{techno.name}}
+                            </button>
+                
+
+        {% set button = button + 1 %}
+        
+
+        {% set numberCat = numberCat + 1 %}
+        {% set cat = techno.category.id %}
+
+    {% elseif (cat == techno.category.id) and ((button % 2) != 0)  %} 
+
+                            <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                data-trigger="focus" title={{techno.name}} data-placement="left"
+                                data-content="{{techno.resume}}">{{techno.name}}
+                            </button> 
+                        </div>
+        {% set button = button + 1 %}
+        {{button}}
+
+    {% elseif (cat == techno.category.id) and ((button % 2) == 0)  %}
+                        <div class="row col-12 col-md-4 ">
+                            <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+                                data-trigger="focus" title={{techno.name}} data-placement="left"
+                                data-content="{{techno.resume}}"> {{techno.name}}
+                            </button>
+        {% set button = button + 1 %}
+        {{button}}
+    
+    {% endif %}
+
+
+    {% if loop.last %} </div> </div> </div>  </div> </div> <p>fin de la loop</p> {% endif %}
+
+{% endfor %}
+
+</section>
+{% endblock %} 
+{# <div class="row justify-content-around">
+    <div class="row col-12 col-md-4 ">
+        <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+            data-trigger="focus" title="Html" data-placement="left"
+            data-content="Le Html est un langage de balisage conçu pour représenter les pages web. C’est
+            un langage permettant d’écrire de l’hypertexte.">Html
+        </button>
+
+        <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+            data-trigger="focus" title="CSS" data-placement="left" data-content="Le CSS est un langage
+            informatique utilisé sur l'internet pour mettre en forme les fichiers HTML ou XML.">CSS
+        </button>
+
+        <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+            data-trigger="focus" title="" data-placement="left" data-content="Le Html est un langage
+            de balisage conçu pour représenter les pages web. 
+            C’est un langage permettant d’écrire de l’hypertexte." data-original-title="Html">Html
+                                </button>
+
+    </div>
+            
+    <div class="row col-12 col-md-4 ">
+        <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button" data-toggle="popover"
+            data-trigger="focus" title="Javascript" data-placement="right"
+            data-content="Le Javascript est un langage de programmation de scripts principalement employé dans les pages web
+            interactives mais aussi pour les serveurs avec l'utilisation (par exemple) de Node.js">Javascript
+        </button>
+        
+        <button tabindex="0" class="btn btn-lg btn-light btn-block" role="button"
+            data-toggle="popover"
+            data-trigger="focus" title="Bootstrap" data-placement="right"
+            data-content="Bootstrap est une bibliothéque utiles à la création du design (graphisme,
+            animation et interactions avec la page dans le navigateur, etc.) de sites et
+            d'applications web.">Bootstrap
+        </button>
+    </div>
+</div> #}
