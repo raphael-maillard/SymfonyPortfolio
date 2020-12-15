@@ -17,29 +17,24 @@ class ProjectFixtures extends Fixture
     }
 
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager) 
     {
+        $faker = \Faker\Factory::create('fr_FR ');
+
         $technologie = $this->technologieRepository->findAll();
 
-
         $projects = [
-      
-            "name" => "Portfolio",
-            "resume" => "Un manifique site.",
-            "technologie"=> [$technologie[0],
-                $technologie[1],
-            ],            
-            "imageName" => "https://via.placeholder.com/300",
         ];
 
-        for($i = 0; $i < count($projects); ++$i){
+        for($i = 0; $i <= 5 ; ++$i){
             $project = new Project();
             
-            $project->setName($projects[$i]['name']);
-            $project->setResume($projects[$i]['resume']);
+            $project->setName($faker->name());
+            $project->setResume($faker->text());
+            $project->setImageName($faker->imageUrl());
+            $project->setLink($faker->url());
             $project->setCreatedAt(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
             // $project->setTechnologie($projects[$i]['technologie']);
-
 
             $manager->persist($project);
         }
