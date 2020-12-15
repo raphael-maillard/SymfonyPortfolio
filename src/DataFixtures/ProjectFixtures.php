@@ -19,7 +19,7 @@ class ProjectFixtures extends Fixture
 
     public function load(ObjectManager $manager) 
     {
-        $faker = \Faker\Factory::create('fr_FR ');
+        $faker = \Faker\Factory::create('fr_FR');
 
         $technologie = $this->technologieRepository->findAll();
 
