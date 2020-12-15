@@ -56,6 +56,11 @@ footer p {
     margin-bottom: 0px;
 }
 
+.row{
+    height: 100%;
+    display: inline;
+}
+
 .project {
     background-color: #9C9C9C !important;
 }
@@ -84,9 +89,17 @@ form {
         font-size: 3rem;
     }
 
-    section:nth-of-type(3) a {
-        padding-top: 0;
+    section:first-of-type {
+        /* height: 100vh; */
     }
+
+    section:nth-of-type(3) a {
+        padding-top: 0;  
+    }    
+    
+    .row{
+    display: flex;
+}
 }
 
 
@@ -94,5 +107,9 @@ form {
 {
     header {
         background: #161415 url(../img/background/sunset.png) no-repeat top center;
+    }
+
+    section:first-of-type {
+    height: auto;
     }
 }
