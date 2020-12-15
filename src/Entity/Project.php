@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ProjectRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -36,6 +38,31 @@ class Project
      * @ORM\Column(type="text", nullable=true)
      */
     private $resume;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Technologie::class, inversedBy="projects")
+     */
+    private $technologies;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $linkSourceCode;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $createdAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $modifiedAt;
+
+    public function __construct()
+    {
+        $this->technologies = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -86,6 +113,68 @@ class Project
     public function setResume(?string $resume): self
     {
         $this->resume = $resume;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Technologie[]
+     */
+    public function getTechnologies(): Collection
+    {
+        return $this->technologies;
+    }
+
+    public function addTechnology(Technologie $technology): self
+    {
+        if (!$this->technologies->contains($technology)) {
+            $this->technologies[] = $technology;
+        }
+
+        return $this;
+    }
+
+    public function removeTechnology(Technologie $technology): self
+    {
+        if ($this->technologies->contains($technology)) {
+            $this->technologies->removeElement($technology);
+        }
+
+        return $this;
+    }
+
+    public function getLinkSourceCode(): ?string
+    {
+        return $this->linkSourceCode;
+    }
+
+    public function setLinkSourceCode(?string $linkSourceCode): self
+    {
+        $this->linkSourceCode = $linkSourceCode;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getModifiedAt(): ?\DateTimeInterface
+    {
+        return $this->modifiedAt;
+    }
+
+    public function setModifiedAt(?\DateTimeInterface $modifiedAt): self
+    {
+        $this->modifiedAt = $modifiedAt;
 
         return $this;
     }
