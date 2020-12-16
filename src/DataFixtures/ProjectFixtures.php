@@ -4,10 +4,12 @@ namespace App\DataFixtures;
 
 use App\Entity\Project;
 use Doctrine\Persistence\ObjectManager;
+use App\DataFixtures\TechnologieFixtures;
 use App\Repository\TechnologieRepository;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class ProjectFixtures extends Fixture
+class ProjectFixtures extends Fixture implements DependentFixtureInterface
 {
     private $technologieRepository;
 
@@ -19,9 +21,9 @@ class ProjectFixtures extends Fixture
 
     public function load(ObjectManager $manager) 
     {
-        $faker = \Faker\Factory::create('fr_FR');
+        $technologie = $this->technologieRepository->findOneByName('CSS');
 
-        $technologie = $this->technologieRepository->findAll();
+        $faker = \Faker\Factory::create('fr_FR');
 
         $projects = [
         ];
@@ -34,6 +36,7 @@ class ProjectFixtures extends Fixture
             $project->setImageName($faker->imageUrl());
             $project->setLink($faker->url());
             $project->setCreatedAt(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
+            $project->addTechnology($technologie);
             // $project->setTechnologie($projects[$i]['technologie']);
 
             $manager->persist($project);
@@ -42,6 +45,16 @@ class ProjectFixtures extends Fixture
 
         $manager->flush();
     }
+
+        public function getDependencies()
+    {
+        return array(
+            TechnologieFixtures::class
+            // CategoryFixtures::class
+        );
+    }
 }
+
+
 
 ?>
