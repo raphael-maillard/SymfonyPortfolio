@@ -27,7 +27,7 @@ $(document).ready(function () {
     Add navbar background color when scrolled
     */
     $(window).scroll(function () {
-        if ($(window).scrollTop() > 800) {
+        if ($(window).scrollTop() > 1000) {
             $(".navbar").addClass("bg-dark");
         } else {
             $(".navbar").removeClass("bg-dark");
@@ -38,7 +38,7 @@ $(document).ready(function () {
         if (!$(".navbar-collapse").hasClass("show")) {
             $(".navbar").addClass("bg-dark");
         } else {
-            if ($(window).scrollTop() < 800) {
+            if ($(window).scrollTop() < 1000) {
                 $(".navbar").removeClass("bg-dark");
             } else {}
         }
@@ -53,3 +53,17 @@ $(document).ready(function () {
 });
 
 $('.carousel').carousel();
+
+document.addEventListener("DOMContentLoaded", function () {
+  let letter = 0;
+  const text = " Raphaël Maillard Développeur Web";
+  function typeText() {
+    if (letter < text.length) {
+      document.getElementById("type-js").innerHTML += text.charAt(letter);
+      letter++;
+      let speed = Math.floor(Math.random() * 150) + 75;
+      setTimeout(typeText, speed);
+    }
+  }
+  typeText();
+});

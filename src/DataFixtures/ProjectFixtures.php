@@ -25,9 +25,6 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
         $faker = \Faker\Factory::create('fr_FR');
 
-        $projects = [
-        ];
-
         for($i = 0; $i <= 5 ; ++$i){
             $project = new Project();
             

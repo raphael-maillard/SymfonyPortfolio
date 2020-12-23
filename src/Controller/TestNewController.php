@@ -13,14 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 class TestNewController extends AbstractController
 {
     /**
-     * @Route("/test/new", name="test_new")
+     * @Route("/", name="test_new")
      */
-    public function index(TechnologieRepository $technologieRepository, ProjectRepository $project)
+    public function index(TechnologieRepository $technologieRepository, ProjectRepository $projectRepository)
     {
         return $this->render('test_new/index.html.twig', [
             'controller_name' => 'TestNewController',
             'Technologies' => $technologieRepository->findAllASC(),
-            'Projects' => $project->findAll(),
+            'Projects' => $projectRepository->findAll(),
             ]
         );
     }

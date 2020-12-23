@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Project;
+use App\Entity\Technologie;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -47,4 +48,15 @@ class ProjectRepository extends ServiceEntityRepository
         ;
     }
     */
+// SELECT technologie.name FROM project JOIN project_technologie ON project.id = project_technologie.project_id join technologie ON project_technologie.technologie_id = technologie.id WHERE project.id = 26
+
+    // public function findTechnologies($value): ?Technologie
+    // {
+    //     $sql = '
+    //         SELECT t.name
+    //         FROM App\Entity\Technologie t
+    //         INNER JOIN Project p 
+    //         WHERE '
+        
+    // }
 }

@@ -3,11 +3,12 @@ body {
     color: black;
 }
 
-.header-1 {
-    background: #161415 url(../img/background/sunset.png) no-repeat fixed;
+header {
     height: 100vh;
-    background-size: cover;
-    font-family: "Myriad pro Semibold";
+    min-height: 550px;
+    background: #161415 url(../img/background/header-background.jpg) no-repeat top center;
+    background-size: cover !important;
+    -webkit-background-size: cover !important;
 }
 
 .vertical {
@@ -18,15 +19,21 @@ a {
     color : #343a40;
 }
 
+.icone {
+    color: #fff;
+}
+
+
 section:first-of-type {
-    background-color: #EFE7DD;
+    background-color: #2B2B2B;
     height: auto;
 }
 
 section:first-of-type button {
-    background-color: #EFE7DD;
+    background-color: #2B2B2B;
     border-radius: none;
-    border-color: #EFE7DD;
+    border-color:#2B2B2B;
+    color: #fff
 }
 
 section:nth-of-type(3) {
@@ -69,13 +76,32 @@ form {
     border-radius: 45%;
 }
 
+#type-css {
+  position: absolute;
+}
+#type-css h1 {
+  overflow: hidden;
+  line-height: 2;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  animation: type 2s steps(30,end) 1s 1 normal both;
+}
+
+@keyframes type {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes cursor {
+  from, to { border-color: transparent; }
+  50% { border-color: #fff; }
+}
 
 @media screen and (min-width: 768px) 
 {
-    header {
+    /* header {
         background: #161415 url(../img/background/sunset.png) no-repeat top center;
         font-size: 1, 8rem;
-    }
+    } */
 
     header h1 {
         font-size: 3rem;
@@ -106,7 +132,7 @@ form {
 @media screen and (min-width: 1280px) 
 {
     header {
-        background: #161415 url(../img/background/sunset.png) no-repeat top center;
+        background: #161415 url(../img/background/header-background.jpg) no-repeat top fixed;
     }
 
     section:first-of-type {
