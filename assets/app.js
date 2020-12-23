@@ -13,14 +13,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
-import './navbar';
-import './fontawesome';
+// import './navbar';
 
 // import 'bootstrap.min.js';
 // import 'jquery-3.5.1.slim.min.js';
 // import 'popper.js';
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/app.js');
 
 $(document).ready(function () {
     /*
