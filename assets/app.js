@@ -7,13 +7,18 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-import 'bootstrap';
+// import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
 
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');
+
+
 // import './navbar';
+// import './fontawesome';
 
 // import 'bootstrap.min.js';
 // import 'jquery-3.5.1.slim.min.js';
