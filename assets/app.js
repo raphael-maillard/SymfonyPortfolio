@@ -7,11 +7,12 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
-// import 'bootstrap';
+import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Need jQuery? Install it with "yarn add jquery", then uncomment to import it.
 import $ from 'jquery';
+require('bootstrap');
 
 require('@fortawesome/fontawesome-free/css/all.min.css');
 require('@fortawesome/fontawesome-free/js/all.js');
@@ -22,9 +23,9 @@ require('@fortawesome/fontawesome-free/js/all.js');
 
 // import 'bootstrap.min.js';
 // import 'jquery-3.5.1.slim.min.js';
-// import 'popper.js';
+import 'popper.js';
 
-// console.log('Hello Webpack Encore! Edit me in assets/app.js');
+console.log('Hello Webpack Encore! Edit me in assets/app.js');
 
 $(document).ready(function () {
     /*
