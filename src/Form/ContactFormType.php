@@ -9,14 +9,16 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
-class ContactFromType extends AbstractType
+class ContactFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('firstname', TextType::class, [
+                'required'   => true,
                 'label' => 'Prénom',
                 'attr' => [
                     'class' => 'form-control'
@@ -24,6 +26,7 @@ class ContactFromType extends AbstractType
             ])
 
             ->add('lastname', TextType::class, [
+                'required'   => true,
                 'label' => 'Nom',
                 'attr' => [
                     'class' => 'form-control'
@@ -31,23 +34,35 @@ class ContactFromType extends AbstractType
             ])
 
             ->add('email', EmailType::class, [
+                'required'   => true,
                 'label' => 'Votre email',
                 'attr' => [
                     'class' => 'form-control'
                 ]
             ])
             ->add('message', TextareaType::class, [
-                    'label' => 'Votre message'
+                'required'   => true,
+                'label' => 'Votre message',
+                'attr' => [
+                    'class' => 'col-12'
+                ]
             ])
 
             ->add('agreeTerms', CheckboxType::class, [
+                'required'   => true,
                 'mapped' => false,
+                'label' => "Envoyer ce message",
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Êtes-vous sûr d\'envoyer ce message',
                     ]),
                 ],
             ])
+            // ->add('envoyer', SubmitType::class, [
+            //     'attr' => [
+            //         'class' => 'btn btn-primary'
+            //     ]
+            // ])
         ;
     }
 

@@ -200,35 +200,39 @@
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content">
                                 
-                                    <form class="container p-4">
-                                    {{ form_start(contact) }}
-                                        <div class="form-row">
-                                            <div class="form-group col-12">
-                                                {{ form_row(contact.email)}}
+                                    {# <form class="container p-4"> #}
+                                        {{ form_start(contact) }}
+                                            <div class="form-row">
+                                                <div class="form-group col-8 ml-2">
+                                                    {{ form_row(contact.email)}}
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-12">
-                                                {{ form_row(contact.firstname)}}                                               
+                                            <div class="form-row">
+                                                <div class="form-group col-8 ml-2">
+                                                    {{ form_row(contact.firstname)}}                                               
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-12">
-                                                {{ form_row(contact.lastname)}}   
+                                            <div class="form-row">
+                                                <div class="form-group col-8 ml-2">
+                                                    {{ form_row(contact.lastname)}}   
+                                                </div>
                                             </div>
-                                        </div>
-                                            <div class="form-group col-12">
-                                                {{ form_row(contact.message)}}  
-                                            </div>                     
-                                        <div class="form-group">
-                                        <div class="form-check">
-                                                {{ form_row(contact.agreeTerms)}}
-                                        </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    {{ form_end(contact) }}
-                                    </form>
+                                            <div class="form-row">
+                                                <div class="form-group col-8 ml-2">
+                                                    {{ form_row(contact.message)}}  
+                                                </div>    
+                                            </div>                  
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    {# {{ form_row(contact.agreeTerms)}} #}
+                                                </div>
+                                            </div>
+                                            {# {{ form_row(contact.envoyer)}} #}
+                                            
+                                            <button type="submit" class="btn btn-primary ml-2">Envoyer</button>                                            
+                                            <button type="button" class="btn btn-secondary ml-2" data-dismiss="modal">Fermer</button>
+                                        {{ form_end(contact) }}
+                                    {# </form> #}
                                 </div>
                             </div>
                         </div>
