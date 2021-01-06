@@ -30,7 +30,7 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
             
             $project->setName($faker->name());
             $project->setResume($faker->text());
-            $project->setImageName($faker->imageUrl());
+            // $project->setImageName($faker->imageUrl());
             $project->setLink($faker->url());
             $project->setCreatedAt(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
             $project->addTechnology($technologie);

@@ -6,9 +6,12 @@ use App\Repository\ProjectRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass=ProjectRepository::class)
+ * @Vich\Uploadable
  */
 class Project
 {
@@ -23,6 +26,14 @@ class Project
      * @ORM\Column(type="string", length=255)
      */
     private $name;
+
+    /**
+     * 
+     * @Vich\UploadableField(mapping="project", fileNameProperty="imageName")
+     * 
+     * @var File|null
+     */
+    private $imageFile;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -59,9 +70,30 @@ class Project
      */
     private $modifiedAt;
 
+
     public function __construct()
     {
         $this->technologies = new ArrayCollection();
+        $this->createdAt = new \DateTime("now", new \DateTimeZone('Europe/Paris'));
+    }
+     /**
+     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) 
+        {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->modifiedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 
     public function getId(): ?int

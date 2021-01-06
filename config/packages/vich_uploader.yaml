@@ -13,3 +13,15 @@ vich_uploader:
             delete_on_remove:   true
             inject_on_load:     false
             delete_on_update:   true
+
+        project:
+            # Ici on reprend l'attribut définit dans le fichier services.yaml
+            uri_prefix: '/images/project'
+            # Ici le namer évite que l'on ai 2 fichiers avec le même nom.
+            namer: Vich\UploaderBundle\Naming\UniqidNamer
+            # Ici on précise où on veut que l'image doit être stocké
+            upload_destination: '%kernel.project_dir%/public/images/project'
+
+            delete_on_remove:   true
+            inject_on_load:     false
+            delete_on_update:   true

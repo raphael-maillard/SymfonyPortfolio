@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Project;
 use App\Entity\Technologie;
 use Symfony\Component\Form\AbstractType;
+use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -15,7 +16,7 @@ class ProjectType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('imageName')
+            // ->add('imageName')
             ->add('link')
             ->add('resume')
             ->add('linkSourceCode')
@@ -25,7 +26,10 @@ class ProjectType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
             ])
-        ;
+            ->add('imageFile', VichFileType::class,[
+                'required' => false,
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
