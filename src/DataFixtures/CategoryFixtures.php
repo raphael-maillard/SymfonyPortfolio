@@ -30,7 +30,7 @@ class CategoryFixtures extends Fixture
             
             [
                 "Name" => "Veille technologique",
-                "image" => "os.svg"
+                "image" => "far fa-eye"
             ],
 
     

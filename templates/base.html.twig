@@ -127,7 +127,7 @@
 
                         <div class=" col-sm-12 col-lg-6 col-xl-4 p-4 ">
                             <div class="card mb-4 mt-2 shadow-sm" >
-                            {% if project.imageName == "https://lorempixel.com/640/480/?30221" %}
+                            {% if project.imageName == none %}
                                 <img class="img-fuild w-100" src="https://via.placeholder.com/350x150"  alt="{{project.name}}" width="150px">
                             {% else %}
                                 <img class="img-fuild w-100" src="./images/project/{{ project.imageName }}"  alt="{{project.name}}" width="150px">
