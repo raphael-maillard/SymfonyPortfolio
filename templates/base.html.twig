@@ -10,7 +10,7 @@
     
     <body>
         
-            <header>
+            <header >
                 {% block header %}
                     {% block nav %}
                         <nav class="navbar navbar-expand-md navbar-light fixed-top">
@@ -21,18 +21,18 @@
                             <div class="collapse navbar-collapse" id="navbarText">
                             <ul class="navbar-nav ml-auto order-1 order-md-2 ">
                                 <li class="nav-item current active"><a class="nav-link" href="#home">Accueil</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#about">Technologies</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#resume">Projets</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#work">Contact</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="#technologies">Technologies</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="#projects">Projets</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="#contact">Contact</a></li>
                                 <li class="nav-item active"><a class="nav-link" href="./file/CV.pdf" target="_blank">CV</a></li>
                             </ul>
                             </div>
                         </nav>
                     {% endblock %}
                     {% block jumbotron %}
-                        <div class="container-fluid">
+                        <div id="home" class="container-fluid" >
                             <div class="row justify-content-center">
-                                <div class="col-sm-12 vertical align-item-center">                                     
+                                <div class="col-sm-12 vertical-header align-item-center">                                     
                                      <h1 id="type-js" class="text-center text-light align-content-center"></h1>
 
                                 </div>
@@ -43,14 +43,14 @@
             </header>
         {% block body %}
             {# Affichage des skills #}
-            <section>
+            <section id="technologies">
                 {% set numberCat = 0 %}
                 {% set button = 0 %}
                 {% set cat = "" %}
 
                 {% for techno in Technologies %}
 
-                    {% if loop.first %} <div class="container-fluid p-4 justify-content-between "> {% endif %}
+                    {% if loop.first %} <div  class="container-fluid p-4 justify-content-between "> {% endif %}
 
                     {% if (cat != techno.category.id ) and ((button % 2) != 0) and (button != 0 )%} </div> <!-- Si l'ancienne CAT avait nb button impair ferme div --> {% endif %}
 
@@ -117,7 +117,7 @@
 
 
 
-            <section class="project">
+            <section id="projects" class="project">
                 {# Thumbail #}
                 {% for project in Projects %}
                     
@@ -197,16 +197,16 @@
 
             </section>
 
-            <section class="section">
+            <section id="contact" class="section">
                 <div class="container">
                     <div class="row p-4">
                         {# <h1 class="col-md-5 mt-4">Pour me contacter : <br></h1> #}
 
-                        <a type="button" class="fas fa-envelope col-12 mx-auto pb-5" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:250px;"></a>
+                        <a type="button" class="fas fa-envelope col-12 mx-auto pb-5" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:30em;"></a>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
 
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg vertical">
+                            <div class="modal-dialog modal-lg vertical-modal">
                                 <div class="modal-content">
                                 
                                     {# <form class="container p-4"> #}
@@ -318,19 +318,19 @@
                         <div class="row text-center text-xs-center text-sm-left justify-content-around">
                             <div class="col-xs-12 col-sm-4 col-md-4 text-center">
                                 <ul class="list-unstyled quick-links justify-content-center text-white">
-                                    <li><a href="" class="badge badge-dark">Accueil</a></li>
-                                    <li><a href="" class="badge badge-dark">Technologies</a></li>
-                                    <li><a href="" class="badge badge-dark"></i>Projets</a></li>
-                                    <li><a href="" class="badge badge-dark"></i>CV</a></li>
+                                    <li><a href="#home" class="badge badge-dark">Accueil</a></li>
+                                    <li><a href="#technologies" class="badge badge-dark">Technologies</a></li>
+                                    <li><a href="#projects" class="badge badge-dark"></i>Projets</a></li>
+                                    <li><a href="./file/CV.pdf" class="badge badge-dark" target="_blank"></i>CV</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="row justify-content-center">
                             <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                                 <ul class="list-unstyled list-inline social text-center text-white">
-                                    <li class="list-inline-item"><a href=""><i class="fab fa-github"></i></a></li>
-                                    <li class="list-inline-item"><a href=""><i class="fab fa-linkedin"></i></a></li>
-                                    <li class="list-inline-item"><a href="" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                                    <li class="list-inline-item"><a href="https://github.com/raphael-maillard" target="_blank"><i class="fab fa-github"></i></a></li>
+                                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/raphael-maillard-b01709192/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                    {# <li class="list-inline-item"><a href="" target="_blank"><i class="fas fa-envelope"></i></a></li> #}
                                 </ul>
                             </div>
                             <hr>

@@ -1,5 +1,9 @@
 /* mobileFirst */
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     color: black;
 }
@@ -16,7 +20,11 @@ header h1 {
     font-size: 2em;
 }
 
-.vertical {
+.vertical-header {
+    margin-top: 40%;
+}
+
+.vertical-modal {
     margin-top: 40%;
 }
 
@@ -31,7 +39,8 @@ a {
 
 section:first-of-type {
     background-color: #2B2B2B;
-    height: auto;
+    height: 100vh;
+
 }
 
 section:first-of-type button {
@@ -138,8 +147,12 @@ svg:hover {
     display: flex;
     }
 
-    .vertical {
+    .vertical-header {
     margin-top: 20%;
+    }   
+
+    .vertical-modal {
+    margin-top: 10%;
     }   
 }
 
@@ -150,11 +163,16 @@ svg:hover {
         background: #161415 url(../img/background/header-background.jpg) no-repeat top fixed;
     }
 
-    section:first-of-type {
-        height: auto;
+    section:nth-of-type(2) {
+        min-height: 100vh;
     }
 
-    section:nth-of-type(2) {
-        height: auto;
+    #contact {
+        min-height: 50vh;
     }
+    
+    #contact a {
+        min-height: 75vh;
+    }
+
 }
