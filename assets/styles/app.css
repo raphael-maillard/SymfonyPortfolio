@@ -1,4 +1,5 @@
 /* mobileFirst */
+
 body {
     color: black;
 }
@@ -9,6 +10,10 @@ header {
     background: #161415 url(../img/background/header-background.jpg) no-repeat top center;
     background-size: cover !important;
     -webkit-background-size: cover !important;
+}
+
+header h1 {
+    font-size: 2em;
 }
 
 .vertical {
@@ -38,8 +43,6 @@ section:first-of-type button {
 
 section:nth-of-type(3) {
     background-color: #616D74;
-    height: 30vh;
-
 }
 
 section:nth-of-type(3) a {
@@ -65,7 +68,6 @@ footer p {
 
 .row{
     height: 100%;
-    display: inline;
 }
 
 .project {
@@ -74,6 +76,15 @@ footer p {
 
 form {
     border-radius: 45%;
+}
+
+svg{
+    transform: scale(0.9);
+    transition: all .5s ease-in-out;
+}
+
+svg:hover {
+    transform: scale(1.1) ;
 }
 
 #type-css {
@@ -125,7 +136,11 @@ form {
 
     .row{
     display: flex;
-}
+    }
+
+    .vertical {
+    margin-top: 20%;
+    }   
 }
 
 
@@ -136,6 +151,10 @@ form {
     }
 
     section:first-of-type {
-    height: auto;
+        height: auto;
+    }
+
+    section:nth-of-type(2) {
+        height: 100vh;
     }
 }
