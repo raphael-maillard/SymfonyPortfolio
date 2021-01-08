@@ -11,7 +11,7 @@ body {
 #home {
     height: 100vh;
     min-height: 550px;
-    background: #161415 url(../img/background/header-background.jpg) no-repeat top center;
+    background: #161415 url(../img/background/header-background.jpg) no-repeat top center fixed;
     background-size: cover !important;
     -webkit-background-size: cover !important;
 }
@@ -39,7 +39,7 @@ a {
 
 section:first-of-type {
     background-color: #2B2B2B;
-    height: 100vh;
+    min-height: 100vh;
 
 }
 

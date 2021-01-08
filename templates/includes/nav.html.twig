@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav ml-auto order-1 order-md-2 ">
+            <li class="nav-item current active"><a class="nav-link" href="/#home">Accueil</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/#technologies">Technologies</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/#projects">Projets</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/#contact">Contact</a></li>
+            <li class="nav-item active"><a class="nav-link" href="./file/CV.pdf" target="_blank">CV</a></li>
+            {% if app.user == none %}
+            <li class="nav-item active"><a class="nav-link" href="login">Login</a></li>
+            
+            {% elseif is_granted('ROLE_ADMIN') %}
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle nav-item active nav-link" type="button" data-toggle="dropdown">Catégorie
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a href="{{path('category_index')}}">Index</a></li>
+                    <li><a href="{{path('category_new')}}">Nouvelle catégorie</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle nav-item active nav-link" type="button" data-toggle="dropdown">Techonologie
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a href="{{path('technologie_index')}}">Index</a></li>
+                    <li><a href="{{path('category_new')}}">technologie_new</a></li>
+                    </ul>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle nav-item active nav-link" type="button" data-toggle="dropdown">Projet
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a href="{{path('project_index')}}">Index</a></li>
+                    <li><a href="{{path('project_new')}}">Nouvelle catégorie</a></li>
+                    </ul>
+                </div>
+                <li class="nav-item active"><a class="nav-link" href="logout">Logout</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

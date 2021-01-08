@@ -6,38 +6,17 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-    </head>
-    {# https://codepen.io/leenalavanya/pen/RYqvgK #}
-    <body>
-        
-            <header >
-                {% block header %}
-                    {% block nav %}
-                        <nav class="navbar navbar-expand-md navbar-light fixed-top">
-                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-                            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                            </button>
-                            <div class="collapse navbar-collapse" id="navbarText">
-                            <ul class="navbar-nav ml-auto order-1 order-md-2 ">
-                                <li class="nav-item current active"><a class="nav-link" href="#home">Accueil</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#technologies">Technologies</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#projects">Projets</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="#contact">Contact</a></li>
-                                <li class="nav-item active"><a class="nav-link" href="./file/CV.pdf" target="_blank">CV</a></li>
-                            </ul>
-                            </div>
-                        </nav>
-                    {% endblock %}
-                {% endblock %}
-            </header>
+
+    {# https://codepen.io/leenalavanya/pen/RYqvgK #}    
+    <body class="body-wrap">
+        {% block nav %}{% include './includes/nav.html.twig' %}{% endblock %}
         {% block body %}
+            
             {% block jumbotron %}
                 <div id="home" class="jumbotron-fluid" >
                     <div class="row justify-content-center">
                         <div class="col-sm-12 vertical-header align-item-center">                                     
                                 <h1 id="type-js" class="text-center text-light align-content-center"></h1>
-
                         </div>
                     </div>
                 </div>
@@ -343,12 +322,12 @@
                     </div>
                 {% endblock %}
             </footer>
-
+        </body>
+        {% endblock %}
             {% block javascripts %}
                 {{ encore_entry_script_tags('app') }}
             {% endblock %}
-        {% endblock %}
-    </body>
+    
 </html>
 
 
