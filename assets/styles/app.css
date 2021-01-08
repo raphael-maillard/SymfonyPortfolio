@@ -8,7 +8,7 @@ body {
     color: black;
 }
 
-header {
+#home {
     height: 100vh;
     min-height: 550px;
     background: #161415 url(../img/background/header-background.jpg) no-repeat top center;

@@ -7,7 +7,7 @@
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
     </head>
-    
+    {# https://codepen.io/leenalavanya/pen/RYqvgK #}
     <body>
         
             <header >
@@ -29,19 +29,20 @@
                             </div>
                         </nav>
                     {% endblock %}
-                    {% block jumbotron %}
-                        <div id="home" class="container-fluid" >
-                            <div class="row justify-content-center">
-                                <div class="col-sm-12 vertical-header align-item-center">                                     
-                                     <h1 id="type-js" class="text-center text-light align-content-center"></h1>
-
-                                </div>
-                            </div>
-                        </div>
-                    {% endblock %}
                 {% endblock %}
             </header>
         {% block body %}
+            {% block jumbotron %}
+                <div id="home" class="jumbotron-fluid" >
+                    <div class="row justify-content-center">
+                        <div class="col-sm-12 vertical-header align-item-center">                                     
+                                <h1 id="type-js" class="text-center text-light align-content-center"></h1>
+
+                        </div>
+                    </div>
+                </div>
+            {% endblock %}
+
             {# Affichage des skills #}
             <section id="technologies">
                 {% set numberCat = 0 %}
