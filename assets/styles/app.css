@@ -16,6 +16,15 @@ body {
     -webkit-background-size: cover !important;
 }
 
+.dropdown-menu{
+    background-color: #161415;
+    color :#161415
+}
+
+.dropdown-menu a {
+    color : white
+}
+
 header h1 {
     font-size: 2em;
 }

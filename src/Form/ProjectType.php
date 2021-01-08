@@ -8,6 +8,8 @@ use Symfony\Component\Form\AbstractType;
 use Vich\UploaderBundle\Form\Type\VichFileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ProjectType extends AbstractType
@@ -15,20 +17,48 @@ class ProjectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
+            ->add('name', TextType::class,[
+                'required' => true,
+                'label' =>false,
+                'attr' => [
+                    'class' => 'form-control mt-2',
+                    'placeholder' => 'Nom'
+                ]])
             // ->add('imageName')
-            ->add('link')
-            ->add('resume')
-            ->add('linkSourceCode')
+            ->add('link',TextType::class,[
+                'required' => true,
+                'label' =>false,
+                'attr' => [
+                    'class' => 'form-control mt-2',
+                    'placeholder' => 'Lien'
+                ]])
+            ->add('resume', TextareaType::class, [
+                'required' => true,
+                'label' =>false,
+                'attr' => [
+                    'class' => 'form-control mt-2',
+                    'placeholder' => 'Résumé'
+                ],
+                ])
+            // ->add('linkSourceCode')
             ->add('technologies', EntityType::class, [
+                'required' => true,
+                'label' => 'Les technologies utilisées ',
                 'class' => Technologie::class,
                 'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => true,
+                'attr' => [
+                    'class' => 'form-check'
+                ]
+                
             ])
-            ->add('imageFile', VichFileType::class,[
-                'required' => false,
-            ])
+            ->add('imageFile', VichFileType::class, [
+                'required' => true,
+                'label' => 'Image du projet',
+                'attr' => [
+                    'class' => 'form-control mt-2',
+                ]])
             ;
     }
 

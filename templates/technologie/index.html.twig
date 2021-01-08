@@ -21,8 +21,8 @@
                 <td>{{ technologie.name }}</td>
                 <td>{{ technologie.resume }}</td>
                 <td>
-                    <a href="{{ path('technologie_show', {'id': technologie.id}) }}">show</a>
-                    <a href="{{ path('technologie_edit', {'id': technologie.id}) }}">edit</a>
+                    <a href="{{ path('technologie_show', {'id': technologie.id}) }}" class="btn btn-info" >show</a>
+                    <a href="{{ path('technologie_edit', {'id': technologie.id}) }}" class="btn btn-primary">edit</a>
                 </td>
             </tr>
         {% else %}

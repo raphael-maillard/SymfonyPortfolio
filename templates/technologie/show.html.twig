@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('technologie_index') }}">back to list</a>
+    <a href="{{ path('technologie_index') }}" class="btn btn-secondary">back to list</a>
 
-    <a href="{{ path('technologie_edit', {'id': technologie.id}) }}">edit</a>
+    <a href="{{ path('technologie_edit', {'id': technologie.id}) }}" class="btn btn-warning">edit</a>
 
     {{ include('technologie/_delete_form.html.twig') }}
 {% endblock %}

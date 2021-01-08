@@ -4,8 +4,10 @@
 
 {% block body %}
     <h1 class="mt-5">Create new Category</h1>
+    <div class="col-8 m-2">
+        {{ include('category/_form.html.twig') }}
 
-    {{ include('category/_form.html.twig') }}
+        <a href="{{ path('category_index')}}" class="btn btn-secondary">back to list</a>
 
-    <a href="{{ path('category_index') }}">back to list</a>
+    </div>
 {% endblock %}
