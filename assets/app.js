@@ -25,7 +25,7 @@ require('@fortawesome/fontawesome-free/js/all.js');
 // import 'jquery-3.5.1.slim.min.js';
 import 'popper.js';
 
-console.log('Hello Webpack Encore! Edit me in assets/app.js');
+// console.log('Hello Webpack Encore! Edit me in assets/app.js');
 
 $(document).ready(function () {
     /*
@@ -33,18 +33,18 @@ $(document).ready(function () {
     */
     $(window).scroll(function () {
         if ($(window).scrollTop() > 1000) {
-            $(".navbar").addClass("bg-dark");
+            $(".navbar").addClass("bg-light");
         } else {
-            $(".navbar").removeClass("bg-dark");
+            $(".navbar").removeClass("bg-light");
         }
     });
     // If Mobile, add background color when toggler is clicked
     $(".navbar-toggler").click(function () {
         if (!$(".navbar-collapse").hasClass("show")) {
-            $(".navbar").addClass("bg-dark");
+            $(".navbar").addClass("bg-light");
         } else {
             if ($(window).scrollTop() < 1000) {
-                $(".navbar").removeClass("bg-dark");
+                $(".navbar").removeClass("bg-light");
             } else {}
         }
     });
@@ -61,7 +61,7 @@ $('.carousel').carousel();
 
 document.addEventListener("DOMContentLoaded", function () {
   let letter = 0;
-  const text = " Raphaël Maillard Développeur Web";
+  const text = "Raphaël Maillard Développeur";
   function typeText() {
     if (letter < text.length) {
       document.getElementById("type-js").innerHTML += text.charAt(letter);

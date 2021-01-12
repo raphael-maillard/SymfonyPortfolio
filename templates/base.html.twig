@@ -8,7 +8,7 @@
         {% endblock %}
 
     {# https://codepen.io/leenalavanya/pen/RYqvgK #}    
-    <body class="body-wrap">
+    <body>
         {% block nav %}{% include './includes/nav.html.twig' %}{% endblock %}
         {% block body %}
             
@@ -18,9 +18,33 @@
                         <div class="col-sm-12 vertical-header align-item-center">                                     
                                 <h1 id="type-js" class="text-center text-light align-content-center"></h1>
                         </div>
+                            <a href="./#about" type="button" class="arrow bounce text-light mt-4 mb-0"><i class="fa fa-arrow-down fa-2x"></i></a>
                     </div>
                 </div>
             {% endblock %}
+            <section id="about">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 ">
+                            <img src="{{ asset('build/images/photoProfil.jpg') }}photoProfil1.jpg" class="photoprofil img-responsive img-thumbnail" alt="photo portrait" />
+                        </div>
+
+                        <div class="about col-xs-6  col-md-9 text-justify">
+                            <h2>A propos de moi</h2>
+
+                            <p>
+                                Je suis passionné depuis mon plus jeune âge par l'informatique de manière générale (innovation
+                                technologique, hardware, programmation...). Adolescent, internet a toujours été très présent dans ma vie.
+                                J'ai à coeur de mettre en application mes connaissances acquises au fil des années.
+                                Je me suis très tôt plongé dans l'univers linux en installant et en administrant,
+                                en ligne de commandes des serveurs Debian ou infrastructure VMware (Debian, Windows Server ...).
+                                Je suis rigoureux. J'aime à la fois le travail en équipe et en autonomie. J'aime les défis et me dépasser.
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {# Affichage des skills #}
             <section id="technologies">
@@ -88,7 +112,6 @@
                         
                         {% endif %}
 
-
                     {% if loop.last %} </div> </div> </div>  </div> {% endif %}
 
                 {% endfor %}
@@ -101,9 +124,7 @@
                 {# Thumbail #}
                 {% for project in Projects %}
                     
-
-
-                    {% if loop.first %} <div class="container"> <div class="row "> {% endif %}
+                    {% if loop.first %} <div class="container col-10 col-lg-8"> <div class="row "> {% endif %}
 
                         <div class=" col-sm-12 col-lg-6 col-xl-4 p-4 ">
                             <div class="card mb-4 mt-2 shadow-sm" >
@@ -218,8 +239,8 @@
                                                 </div>
                                             </div> #}
                                             {% for contact in contact %}
-                                            <div class="form-row">
-                                                <div class="form-group col-9 ml-2">
+                                            <div class="form-row mt-4 ml-3">
+                                                <div class="form-group col-9 ml-2 ">
                                                     {{ form_row(contact)}}  
                                                 </div>    
                                             </div>     
@@ -299,7 +320,7 @@
                             <div class="col-xs-12 col-sm-4 col-md-4 text-center">
                                 <ul class="list-unstyled quick-links justify-content-center text-white">
                                     <li><a href="#home" class="badge badge-dark">Accueil</a></li>
-                                    <li><a href="#technologies" class="badge badge-dark">Technologies</a></li>
+                                    <li><a href="#technologies" class="badge badge-dark p-0">Technologies</a></li>
                                     <li><a href="#projects" class="badge badge-dark"></i>Projets</a></li>
                                     <li><a href="./file/CV.pdf" class="badge badge-dark" target="_blank"></i>CV</a></li>
                                 </ul>
@@ -326,6 +347,5 @@
         {% endblock %}
             {% block javascripts %}
                 {{ encore_entry_script_tags('app') }}
-            {% endblock %}
-    
+            {% endblock %}    
 </html>
