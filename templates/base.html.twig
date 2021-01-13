@@ -119,7 +119,7 @@
                 {# Thumbail #}
                 {% for project in Projects %}
                     
-                    {% if loop.first %} <div class="container col-10 col-lg-8"> <div class="row "> {% endif %}
+                    {% if loop.first %} <div class="container"> <div class="row "> {% endif %}
 
                         <div class=" col-sm-12 col-lg-6 col-xl-4 p-4 ">
                             <div class="card mb-4 mt-2 shadow-sm" >
@@ -135,7 +135,7 @@
                                     </div>
                                     <a type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#project-{{project.id}}">En savoir plus</a>
 
-                                     <div id="project-{{project.id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                    <div id="project-{{project.id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                                         <div class="modal-dialog"> 
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -144,33 +144,32 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <div class="card mb-4 mt-2 shadow-sm" >
-                                                        {% if project.imageName == "https://lorempixel.com/640/480/?30221" %}
-                                                            <img class="img-fuild w-100" src="./image/project/404-error.png"  alt="{{project.name}}" width="150px">
-                                                        {% else %}
-                                                            <img class="img-fuild w-100" src=./images/project/{{ project.imageName }}  alt="{{project.name}}" width="150px">
-                                                        {% endif %}
+                                                    {% if project.imageName == "https://lorempixel.com/640/480/?30221" %}
+                                                        <img class="img-fuild w-100" src="./image/project/404-error.png"  alt="{{project.name}}" width="150px">
+                                                    {% else %}
+                                                        <img class="img-fuild w-100" src=./images/project/{{ project.imageName }}  alt="{{project.name}}" width="150px">
+                                                    {% endif %}
                                                         
-                                                            <div class="card-body">
-                                                                {{project.resume}}
+                                                        <div class="card-body">
+                                                            {{project.resume}}
 
-                                                                <h5><br>Les technologies utilisées pour ce projet sont :</h5>
-                                                                <div class="d-flex justify-content-between align-items-center">
-                                                                    <div class="btn-group">
-                                                                        {% for technologies in project.technologies %}
-                                                                            {% if loop.first and loop.last != true %}
-                                                                                <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}},</span></p>
-                                                                            {% elseif loop.last  %}
-                                                                                <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}}.</span></p>
-                                                                            {% else %}
-                                                                                <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}}, </span></p>
-                                                                            {% endif %}
+                                                            <h5><br>Les technologies utilisées pour ce projet sont :</h5>
+                                                            <div class="d-flex justify-content-between align-items-center">
+                                                                <div class="btn-group">
+                                                                    {% for technologies in project.technologies %}
+                                                                        {% if loop.first and loop.last != true %}
+                                                                            <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}},</span></p>
+                                                                        {% elseif loop.last  %}
+                                                                            <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}}.</span></p>
+                                                                        {% else %}
+                                                                            <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}}, </span></p>
+                                                                        {% endif %}
 
-                                                                        {% endfor %}
-                                                                    </div>
+                                                                    {% endfor %}
                                                                 </div>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                                                                    
+                                                    </div>                                                                                                    
                                                 </div>
 
                                                 <div class="modal-footer">
@@ -181,7 +180,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -203,48 +201,50 @@
 
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg vertical-modal">
-                                <div class="modal-content">
-                                
-                                    {# <form class="container p-4"> #}
-                                        {# {{ form_start(contact) }}
+                                <div class="modal-content">                                        
+                                        {{ form_start(contact) }}
                                             <div class="form-row">
-                                                <div class="form-group col-9 ml-2">
+                                                <div class="form-group col-8 ml-2">
                                                     {{ form_row(contact.email)}}
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-group col-9 ml-2">
+                                                <div class="form-group col-8 ml-2">
                                                     {{ form_row(contact.firstname)}}                                               
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-group col-9 ml-2">
+                                                <div class="form-group col-8 ml-2">
                                                     {{ form_row(contact.lastname)}}   
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-group col-9 ml-2">
+                                                <div class="form-group col-8 ml-2">
                                                     {{ form_row(contact.message)}}  
                                                 </div>    
                                             </div>                  
                                             <div class="form-row">
-                                                <div class="form-group col-9 ml-2">
                                                 <div class="form-check">
                                                     {{ form_row(contact.agreeTerms)}}
                                                 </div>
-                                            </div> #}
-                                            {% for contact in contact %}
+                                            </div>
+                                            {# {{ form_row(contact.envoyer)}} #}
+                                            
+                                            <button type="submit" class="btn btn-primary m-2">Envoyer</button>                                            
+                                            <button type="button" class="btn btn-secondary m-2" data-dismiss="modal">Fermer</button>
+                                        {{ form_end(contact) }}
+                                            {# {% for contact in contact %}
                                             <div class="form-row mt-4 ml-3">
                                                 <div class="form-group col-9 ml-2 ">
                                                     {{ form_row(contact)}}  
                                                 </div>    
                                             </div>     
                                             {% endfor %}
-                                            {# {{ form_row(contact.envoyer)}} #}
+                                            {{ form_row(contact.envoyer)}}
                                             
                                             <button type="submit" class="btn btn-primary m-2">Envoyer</button>                                            
                                             <button type="button" class="btn btn-secondary m-2" data-dismiss="modal">Fermer</button>
-                                        {{ form_end(contact) }}
+                                        {{ form_end(contact) }} #}
                                     {# </form> #}
                                 </div>
                             </div>
