@@ -31,6 +31,7 @@ class AboutType extends AbstractType
                 ]
             ])
             ->add('imageFile', VichFileType::class, [
+                'required' => false,
                 'attr' => [
                     'class' => 'form-control '
                 ]
