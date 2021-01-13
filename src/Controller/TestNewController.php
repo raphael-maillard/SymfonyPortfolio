@@ -29,12 +29,13 @@ class TestNewController extends AbstractController
         
         
         if($form->isSubmitted() && $form->isValid()){
-            print('on est dans le if');
+            // var_dump($contact);
+            // die;
             // We create/load the mail
             $email = (new TemplatedEmail())
                 ->from($contact->get('email')->getData())
-                ->to(new Address('raphael.maillard@gmail.com', 'Test Mailer'))
-                ->subject('Contact venant du site personnel'.$contact->getName())
+                ->to(new Address('raphael.maillard@gmail.com', 'Site raphael-maillard.fr'))
+                ->subject('Mail venant du site personnel '.$contact->get('firstname')->getData())
                 ->htmlTemplate('emails/contact.html.twig')
                 ->context([
                     'firstname' => $contact->get('firstname')->getData(),
