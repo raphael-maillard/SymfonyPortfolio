@@ -29,6 +29,10 @@ body {
     min-height: 30vh;
 }
 
+.photoprofil {
+    transform: scale(0.9);
+}
+
 
 .dropdown-menu{
     background-color: #161415;

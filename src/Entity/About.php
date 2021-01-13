@@ -38,9 +38,24 @@ class About
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imageName;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $CreatedAt;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $ModifiedAt;
+
+        public function __construct()
+    {
+        $this->CreatedAt = new \DateTimeImmutable();
+    }
 
     /**
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
@@ -86,7 +101,7 @@ class About
         return $this;
     }
 
-    public function getImageFile(): ?string
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
@@ -96,9 +111,33 @@ class About
         return $this->imageName;
     }
 
-    public function setImageName(string $imageName): self
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->CreatedAt;
+    }
+
+    public function setCreatedAt(\DateTimeInterface $CreatedAt): self
+    {
+        $this->CreatedAt = $CreatedAt;
+
+        return $this;
+    }
+
+    public function getModifiedAt(): ?\DateTimeInterface
+    {
+        return $this->ModifiedAt;
+    }
+
+    public function setModifiedAt(?\DateTimeInterface $ModifiedAt): self
+    {
+        $this->ModifiedAt = $ModifiedAt;
 
         return $this;
     }

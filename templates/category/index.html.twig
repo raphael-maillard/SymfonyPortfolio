@@ -5,8 +5,8 @@
 {% block body %}
     <h1 class="mt-5">Category index</h1>
 
-    <table class="table table-dark">
-        <thead>
+    <table class="table table-striped table-dark">
+        <thead> 
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Name</th>
@@ -20,7 +20,7 @@
         <tbody>
         {% for category in categories %}
             <tr>
-                <td>{{ category.id }}</td>
+                <th scope="row">{{ category.id }}</th>
                 <td>{{ category.name }}</td>
                 <td>{{ category.imageFile }}</td>
                 <td>{{ category.imageName }}</td>

@@ -26,20 +26,15 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-3 ">
-                            <img src="{{ asset('build/images/photoProfil.jpg') }}photoProfil1.jpg" class="photoprofil img-responsive img-thumbnail" alt="photo portrait" />
+                        {% for about in about %}
+                            <img src="{{ asset('images/about/' ~ about.imageName) }}" class="photoprofil img-responsive img-thumbnail" alt="photo portrait" style="width:250px; height:250px" />
                         </div>
 
                         <div class="about col-xs-6  col-md-9 text-justify">
-                            <h2>A propos de moi</h2>
+                            <h2>{{about.title}}</h2>
 
-                            <p>
-                                Je suis passionné depuis mon plus jeune âge par l'informatique de manière générale (innovation
-                                technologique, hardware, programmation...). Adolescent, internet a toujours été très présent dans ma vie.
-                                J'ai à coeur de mettre en application mes connaissances acquises au fil des années.
-                                Je me suis très tôt plongé dans l'univers linux en installant et en administrant,
-                                en ligne de commandes des serveurs Debian ou infrastructure VMware (Debian, Windows Server ...).
-                                Je suis rigoureux. J'aime à la fois le travail en équipe et en autonomie. J'aime les défis et me dépasser.
-                            </p>
+                            <p>{{about.resume}}</p>
+                        {% endfor %}
 
                         </div>
                     </div>

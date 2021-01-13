@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Project;
 use App\Entity\Technologie;
 use App\Form\ContactFormType;
+use App\Repository\AboutRepository;
 use Symfony\Component\Mime\Address;
 use App\Repository\ProjectRepository;
 use App\Repository\CategoryRepository;
@@ -20,7 +21,7 @@ class TestNewController extends AbstractController
     /**
      * @Route("/", name="test_new")
      */
-    public function index(TechnologieRepository $technologieRepository, ProjectRepository $projectRepository, Request $request, MailerInterface $mailer)
+    public function index(TechnologieRepository $technologieRepository, ProjectRepository $projectRepository, Request $request, MailerInterface $mailer, AboutRepository $aboutRepository)
     {
         $form = $this->createForm(ContactFormType::class);
 
@@ -55,9 +56,9 @@ class TestNewController extends AbstractController
             'controller_name' => 'TestNewController',
             'Technologies' => $technologieRepository->findAllASC(),
             'Projects' => $projectRepository->findAll(),
-            'contact' => $form->createView() 
+            'contact' => $form->createView(),
+            'about' => $aboutRepository->findAll()
 
-            
             ]
         );
     }
