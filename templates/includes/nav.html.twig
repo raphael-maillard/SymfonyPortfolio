@@ -8,6 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav ml-auto order-1 order-md-2 ">
             <li class="nav-item current active"><a class="nav-link" href="/#home">Accueil</a></li>
+            <li class="nav-item active"><a class="nav-link" href="/#about">A Propos</a></li>
             <li class="nav-item active"><a class="nav-link" href="/#technologies">Technologies</a></li>
             <li class="nav-item active"><a class="nav-link" href="/#projects">Projets</a></li>
             <li class="nav-item active"><a class="nav-link" href="/#contact">Contact</a></li>
@@ -16,6 +17,13 @@
                 <li class="nav-item active"><a class="nav-link" href="login">Login</a></li>
             
             {% elseif is_granted('ROLE_ADMIN') %}
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle nav-item active nav-link" type="button" data-toggle="dropdown">About
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a href="{{path('about_index')}}">Index</a></li>
+                    </ul>
+                </div>
                 <div class="dropdown">
                     <button class="btn btn-default dropdown-toggle nav-item active nav-link" type="button" data-toggle="dropdown">Catégorie
                     </button>
