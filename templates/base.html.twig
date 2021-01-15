@@ -155,7 +155,7 @@
 
                                                             <h5><br>Les technologies utilisées pour ce projet sont :</h5>
                                                             <div class="d-flex justify-content-between align-items-center">
-                                                                <div class="btn-group">
+                                                                <div class="btn-group flex-wrap">
                                                                     {% for technologies in project.technologies %}
                                                                         {% if loop.first and loop.last != true %}
                                                                             <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}},</span></p>
@@ -232,7 +232,7 @@
                                                 {{form_widget(contact.agreeTerms, {'attr': {'class': 'form-check-input ml-4'}})}}
                                         </div>
                                         
-                                        <button type="submit" class="btn btn-primary m-2 ml-4 mb-4">Envoyer</button>                                            
+                                        <button type="submit" class="btn btn-success m-2 ml-4 mb-4">Envoyer</button>                                            
                                         <button type="button" class="btn btn-secondary m-2 mb-4" data-dismiss="modal">Fermer</button>
                                     {{ form_end(contact) }}
                                 </div>
