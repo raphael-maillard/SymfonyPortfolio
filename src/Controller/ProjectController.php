@@ -37,6 +37,9 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $project->setCreatedAt(new \DateTime("now", new \DateTimeZone('Europe/Paris')));
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($project);
             $entityManager->flush();
@@ -69,6 +72,8 @@ class ProjectController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $project->setModifiedAt(new \DateTime("now", new \DateTimeZone('Europe/Paris')));
+
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('project_index');

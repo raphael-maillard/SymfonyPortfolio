@@ -46,7 +46,6 @@ class CategoryFixtures extends Fixture
 
             $manager->persist($categorie);
         }
-
         // add more products
 
         $manager->flush();

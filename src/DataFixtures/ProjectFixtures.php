@@ -25,19 +25,32 @@ class ProjectFixtures extends Fixture implements DependentFixtureInterface
 
         $faker = \Faker\Factory::create('fr_FR');
 
-        for($i = 0; $i <= 5 ; ++$i){
+        $projects = [
+            [
+                "Name" => "Test",
+                "Resume" => "Ceci est mon site personnel dans lequel je me présente et où je mets en avant les apprentissages réalisés",
+                "Link" =>" "
+                
+            ],
+        ];
+
+        // for($i = 0; $i <= count($projects) ; ++$i){
             $project = new Project();
             
-            $project->setName($faker->name());
-            $project->setResume($faker->text());
-            // $project->setImageName($faker->imageUrl());
-            $project->setLink($faker->url());
-            $project->setCreatedAt(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
+            $project->setName($projects[0]['Name']);
+            $project->setResume($projects[0]['Resume']);
+            $project->setLink($projects[0]['Link']);
             $project->addTechnology($technologie);
-            // $project->setTechnologie($projects[$i]['technologie']);
+
+            // $project->setName($faker->name());
+            // $project->setResume($faker->text());
+            // $project->setImageName($faker->imageUrl());
+            // $project->setLink($faker->url());
+            // $project->setCreatedAt(\DateTime::createFromFormat('Y-m-d', "2018-09-09"));
+            // $project->addTechnology($technologie);
 
             $manager->persist($project);
-        }
+        // }
 
 
         $manager->flush();
