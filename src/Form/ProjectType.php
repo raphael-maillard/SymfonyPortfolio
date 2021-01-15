@@ -26,7 +26,7 @@ class ProjectType extends AbstractType
                 ]])
             // ->add('imageName')
             ->add('link',TextType::class,[
-                'required' => true,
+                'required' => false,
                 'label' =>false,
                 'attr' => [
                     'class' => 'form-control mt-2',
@@ -54,7 +54,7 @@ class ProjectType extends AbstractType
                 
             ])
             ->add('imageFile', VichFileType::class, [
-                'required' => true,
+                'required' => false,
                 'label' => 'Image du projet',
                 'attr' => [
                     'class' => 'form-control mt-2',

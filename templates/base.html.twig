@@ -116,17 +116,18 @@
 
 
             <section id="projects" class="project">
+                <h2 class="pt-2 text-center">Les projets réalisés</h2>
+
                 {# Thumbail #}
                 {% for project in Projects %}
                     
                     {% if loop.first %} <div class="container"> <div class="row "> {% endif %}
-
                         <div class=" col-sm-12 col-lg-6 col-xl-4 p-4 ">
-                            <div class="card mb-4 mt-2 shadow-sm" >
+                            <div class="card mb-4 mt-2 shadow-sm">
                             {% if project.imageName == none %}
-                                <img class="img-fuild w-100" src="https://via.placeholder.com/350x150"  alt="{{project.name}}" width="150px">
+                                <img class="img img-fuild img-thumbnail" src="https://via.placeholder.com/350x150"  alt="{{project.name}}">
                             {% else %}
-                                <img class="img-fuild w-100" src="./images/project/{{ project.imageName }}"  alt="{{project.name}}" width="150px">
+                                <img class=" img img-fuild img-thumbnail br-3" src="./images/project/{{ project.imageName }}"  alt="{{project.name}}">
                             {% endif %}
                                 <div class="card-body">
                                     <div class="card-text">
@@ -143,11 +144,11 @@
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">X</button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="card mb-4 mt-2 shadow-sm" >
+                                                    <div class="card mb-4 mt-2 shadow-sm" style="height:150; width:150;overflow:hidden;" >
                                                     {% if project.imageName == "https://lorempixel.com/640/480/?30221" %}
-                                                        <img class="img-fuild w-100" src="./image/project/404-error.png"  alt="{{project.name}}" width="150px">
+                                                        <img class=" img-fuild  img-thumbnail" src="./image/project/404-error.png"  alt="{{project.name}}">
                                                     {% else %}
-                                                        <img class="img-fuild w-100" src=./images/project/{{ project.imageName }}  alt="{{project.name}}" width="150px">
+                                                        <img class="img-card img-fuild img-thumbnail" src=./images/project/{{ project.imageName }}  alt="{{project.name}}" >
                                                     {% endif %}
                                                         
                                                         <div class="card-body">
@@ -164,12 +165,16 @@
                                                                         {% else %}
                                                                             <p><span class= "badge {{ random(['badge-primary', 'badge-secondary', 'badge-success', 'badge-warning', 'badge-info', 'badge-dark' ]) }}">{{technologies.name}}, </span></p>
                                                                         {% endif %}
-
                                                                     {% endfor %}
+
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                    </div>                                                                                                    
+                                                        {% if project.link == true %}
+                                                            <div class="align-right"><h4><a href={{project.link}} class="badge badge-dark float-right">Lien du projet</a></h4></div>
+                                                        {% endif %}
+                                                    </div>
+                                                                                                                                                   
                                                 </div>
 
                                                 <div class="modal-footer">
