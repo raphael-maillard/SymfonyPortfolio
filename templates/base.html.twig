@@ -202,55 +202,39 @@
                         <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg vertical-modal">
                                 <div class="modal-content">                                        
-                                        {{ form_start(contact) }}
-                                            <div class="form-row ml-2 mt-3">
-                                                <div class="form-group col-8 ml-2">
-                                                    {{ form_label(contact.email, 'Votre Email')}}
-                                                    {{form_widget(contact.email)}}                                                    
-                                                </div>
+                                    {{ form_start(contact) }}
+                                        <div class="form-row ml-2 mt-3">
+                                            <div class="form-group col-8 ml-2">
+                                                {{ form_label(contact.email, 'Votre Email')}}
+                                                {{form_widget(contact.email)}}                                                    
                                             </div>
-                                            <div class="form-row ml-2">
-                                                <div class="form-group col-8 ml-2">
-                                                    {{ form_label(contact.firstname, 'Votre prénom')}} 
-                                                    {{form_widget(contact.firstname)}}
-                                                </div>
+                                        </div>
+                                        <div class="form-row ml-2">
+                                            <div class="form-group col-8 ml-2">
+                                                {{ form_label(contact.firstname, 'Votre prénom')}} 
+                                                {{form_widget(contact.firstname)}}
                                             </div>
-                                            <div class="form-row ml-2">
-                                                <div class="form-group col-8 ml-2">
-                                                    {{ form_label(contact.lastname, 'Votre nom')}}  
-                                                    {{form_widget(contact.lastname)}}                                                     
-                                                </div>
+                                        </div>
+                                        <div class="form-row ml-2">
+                                            <div class="form-group col-8 ml-2">
+                                                {{ form_label(contact.lastname, 'Votre nom')}}  
+                                                {{form_widget(contact.lastname)}}                                                     
                                             </div>
-                                            <div class="form-row ml-2">
-                                                <div class="form-group col-8 ml-2">
-                                                    {{ form_label(contact.message, 'Le message que vous voulez laisser')}}  
-                                                    {{form_widget(contact.message)}}
-                                                </div>    
-                                            </div>                  
-                                            <div class="form-group form-check">
-                                                {# <div class="form-check"> #}
-                                                    {{ form_label(contact.agreeTerms, "Êtes-vous de votre message ? ", {'label_attr': {'class': 'form-check-label'}} )}}
-                                                    {{form_widget(contact.agreeTerms, {'attr': {'class': 'form-check-input ml-4'}})}}
-                                                {# </div> #}
-                                            </div>
-                                            {# {{ form_row(contact.envoyer)}} #}
-                                            
-                                            <button type="submit" class="btn btn-primary m-2 ml-4 mb-4">Envoyer</button>                                            
-                                            <button type="button" class="btn btn-secondary m-2 mb-4" data-dismiss="modal">Fermer</button>
-                                        {{ form_end(contact) }}
-                                            {# {% for contact in contact %}
-                                            <div class="form-row mt-4 ml-3">
-                                                <div class="form-group col-9 ml-2 ">
-                                                    {{ form_row(contact)}}  
-                                                </div>    
-                                            </div>     
-                                            {% endfor %}
-                                            {{ form_row(contact.envoyer)}}
-                                            
-                                            <button type="submit" class="btn btn-primary m-2">Envoyer</button>                                            
-                                            <button type="button" class="btn btn-secondary m-2" data-dismiss="modal">Fermer</button>
-                                        {{ form_end(contact) }} #}
-                                    {# </form> #}
+                                        </div>
+                                        <div class="form-row ml-2">
+                                            <div class="form-group col-8 ml-2">
+                                                {{ form_label(contact.message, 'Le message que vous voulez laisser')}}  
+                                                {{form_widget(contact.message)}}
+                                            </div>    
+                                        </div>                  
+                                        <div class="form-group form-check">
+                                                {{ form_label(contact.agreeTerms, "Êtes-vous de votre message ? ", {'label_attr': {'class': 'form-check-label'}} )}}
+                                                {{form_widget(contact.agreeTerms, {'attr': {'class': 'form-check-input ml-4'}})}}
+                                        </div>
+                                        
+                                        <button type="submit" class="btn btn-primary m-2 ml-4 mb-4">Envoyer</button>                                            
+                                        <button type="button" class="btn btn-secondary m-2 mb-4" data-dismiss="modal">Fermer</button>
+                                    {{ form_end(contact) }}
                                 </div>
                             </div>
                         </div>
@@ -258,60 +242,7 @@
                 </div>
                 
             </section>
-            {# <section class="section">
-                <div class="container">
-                    <div class="row p-4">
-                        <h1 class="col-md-5 mt-4">Pour me contacter : <br></h1>
-
-                        <a type="button" class="fas fa-envelope col-md-7" data-toggle="modal" data-target=".bd-example-modal-lg" style="font-size:250px;"></a>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
-
-                        <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
-                                
-                                    <form class="container p-4">
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Nom</label>
-                                                <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                            <div class="form-group col-md-6">
-                                                <label for="inputEmail4">Prénom</label>
-                                                <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
-                                            </div>
-                                        </div>
-                                        <div class="form-row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Email</label>
-                                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                                        </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">Example textarea</label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                        </div>                        
-                                        <div class="form-group">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                                            <label class="form-check-label" for="gridCheck">
-                                            Check me out
-                                            </label>
-                                        </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-            </section> #}
-        
+           
             <footer class="footer">
                 {% block footer %}
 
