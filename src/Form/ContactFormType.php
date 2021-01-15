@@ -50,7 +50,7 @@ class ContactFormType extends AbstractType
 
             ->add('agreeTerms', CheckboxType::class, [
                 'required'   => true,
-                'label' => "Envoyer ce message",
+                'label' => "Préparer l'envoie",
                 'constraints' => [
                     new IsTrue([
                         'message' => 'Êtes-vous sûr d\'envoyer ce message',
