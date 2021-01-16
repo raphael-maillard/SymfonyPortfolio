@@ -170,8 +170,10 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        {% if project.link == true %}
-                                                            <div class="align-right"><h4><a href={{project.link}} class="badge badge-dark float-right">Lien du projet</a></h4></div>
+                                                        {% if project.link == "https://raphael-maillard.com" %}
+                                                            <div class="align-right"><h4><a href={{project.link}} class="badge badge-dark float-right" >Lien du projet</a></h4></div>
+                                                        {% else %}
+                                                            <div class="align-right"><h4><a href={{project.link}} class="badge badge-dark float-right" target="_blank" >Lien du projet</a></h4></div>
                                                         {% endif %}
                                                     </div>
                                                                                                                                                    
@@ -259,7 +261,7 @@
                                     <li><a href="#about" class="badge badge-dark">A Propos</a></li>
                                     <li><a href="#technologies" class="badge badge-dark p-0">Technologies</a></li>
                                     <li><a href="#projects" class="badge badge-dark"></i>Projets</a></li>
-                                    <li><a href="./file/CV.pdf" class="badge badge-dark" target="_blank"></i>CV</a></li>
+                                    <li><a href="./files/CV-Raphael-Maillard.pdf" class="badge badge-dark" target="_blank"></i>CV</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -268,13 +270,13 @@
                                 <ul class="list-unstyled list-inline social text-center text-white">
                                     <li class="list-inline-item"><a href="https://github.com/raphael-maillard" target="_blank"><i class="fab fa-github"></i></a></li>
                                     <li class="list-inline-item"><a href="https://www.linkedin.com/in/raphael-maillard-b01709192/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                    {# <li class="list-inline-item"><a href="" target="_blank"><i class="fas fa-envelope"></i></a></li> #}
                                 </ul>
                             </div>
                             <hr>
                             <div class="row">
                                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white p-2">
-                                    <p>Mention légales © All right Reversed.</p>
+                                    <a href="#" data-toggle="modal" data-target="#legal-notice-modal" role="dialog"><p>Mention légales © All right Reversed.</p></a>
+                                    {% block leagal%} {% include './includes/mentionsLegals.html.twig' %} {% endblock %}
                                 </div>
                             </div>	
                     </div>
