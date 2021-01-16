@@ -65,20 +65,20 @@ a {
     color: #fff;
 }
 
-.img {
+.card-img-top {
 
     max-width: 350px;
     max-height: 150px;
     width: auto;
     height: auto;
-    object-fit: contain;
-
+    margin: auto;
+    object-fit: scale-down;
+    
 }
 
 .img-card{
     max-height: 350px;
     object-fit: scale-down;
-
 }
 
 
