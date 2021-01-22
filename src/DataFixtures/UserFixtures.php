@@ -21,11 +21,11 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $mdp = "mdp";
+        $mdp = "";
         $users = [
             [
                 "roles" => ['ROLE_SUPER_ADMIN'],
-                "email" => "admin@raphael.fr",
+                "email" => "",
                 "password" => $mdp
             ],
         ];
