@@ -50,8 +50,8 @@ class MainController extends AbstractController
         }
 
 
-        return $this->render('test_new/index.html.twig', [
-            'controller_name' => 'TestNewController',
+        return $this->render('main/index.html.twig', [
+            'controller_name' => 'MainController',
             'Technologies' => $technologieRepository->findAllASC(),
             'Projects' => $projectRepository->findAll(),
             'contact' => $form->createView(),
