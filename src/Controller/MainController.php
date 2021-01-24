@@ -30,7 +30,6 @@ class MainController extends AbstractController
                     ->setTo('raphael.maillard@gmail.com')
                     ->setBody(
                         $this->renderView(
-                            // templates/emails/registration.html.twig
                             'emails/contact.html.twig',[
                             'firstname' => $contact->get('firstname')->getData(),
                             'lastname' => $contact->get('lastname')->getData(),
