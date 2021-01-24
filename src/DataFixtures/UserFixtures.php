@@ -11,8 +11,6 @@ class UserFixtures extends Fixture
 {
 
     private $encoder;
-    private $structureRepository;
-    private $buildingRepository;
 
     public function __construct(UserPasswordEncoderInterface $encoder)
     {
