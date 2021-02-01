@@ -53,9 +53,11 @@ class ContactFormType extends AbstractType
                 'required' => false,
                 'label' => 'Votre age',
                 'attr' => [
-                    'class' => 'col-12',
-                    'style' => 'display:none!important'
-                ]
+                    'class'         => 'col-12',
+                    'style'         => 'display:none!important',
+                    'autocomplete'  => 'off',
+                    'tabindex'      => '-1'
+                ],
             ])
 
             ->add('agreeTerms', CheckboxType::class, [
