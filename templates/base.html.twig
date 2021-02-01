@@ -234,6 +234,14 @@
                                                 {{form_widget(contact.message)}}
                                             </div>    
                                         </div>                  
+                                        <div class="form-row ml-2">
+                                            <div class="form-group col-8 ml-2">
+                                                {{ form_label(contact.age, 'votre Age', {
+                                                    'label_attr': {'hidden': 'true'}
+                                                })}}  
+                                                {{form_widget(contact.age, {'label_attr': {'hidden': 'true'}})}}
+                                            </div>    
+                                        </div>                  
                                         <div class="form-group form-check">
                                                 {{ form_label(contact.agreeTerms, "Êtes-vous de votre message ? ", {'label_attr': {'class': 'form-check-label'}} )}}
                                                 {{form_widget(contact.agreeTerms, {'attr': {'class': 'form-check-input ml-4'}})}}

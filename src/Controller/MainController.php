@@ -21,9 +21,12 @@ class MainController extends AbstractController
         $form = $this->createForm(ContactFormType::class);
 
         $contact = $form->handleRequest($request);
+
         
         
-        if($form->isSubmitted() && $form->isValid()){
+        
+        if($form->isSubmitted() && $form->isValid() && $contact->get('age')->getData() == null ){
+            
 
             $email = (new \Swift_Message('Site Personnel'))
                     ->setFrom($contact->get('email')->getData())

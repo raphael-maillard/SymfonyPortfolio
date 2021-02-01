@@ -9,6 +9,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
@@ -45,6 +47,14 @@ class ContactFormType extends AbstractType
                 'label' => 'Votre message',
                 'attr' => [
                     'class' => 'col-12'
+                ]
+            ])
+            ->add('age', IntegerType::class, [
+                'required' => false,
+                'label' => 'Votre age',
+                'attr' => [
+                    'class' => 'col-12',
+                    'hidden' => 'true'
                 ]
             ])
 
