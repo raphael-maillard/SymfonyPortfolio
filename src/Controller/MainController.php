@@ -25,7 +25,7 @@ class MainController extends AbstractController
         
         if($form->isSubmitted() && $form->isValid()){
 
-            $email = (new \Swift_Message('Sitez Personnel'))
+            $email = (new \Swift_Message('Site Personnel'))
                     ->setFrom($contact->get('email')->getData())
                     ->setTo('raphael.maillard@gmail.com')
                     ->setBody(
