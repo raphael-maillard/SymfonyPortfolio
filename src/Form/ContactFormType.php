@@ -54,7 +54,7 @@ class ContactFormType extends AbstractType
                 'label' => 'Votre age',
                 'attr' => [
                     'class' => 'col-12',
-                    'hidden' => 'true'
+                    'style' => 'display:none!important'
                 ]
             ])
 
